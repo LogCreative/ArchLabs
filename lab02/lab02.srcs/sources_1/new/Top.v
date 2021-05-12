@@ -60,7 +60,7 @@ module Top(
     
     reg [1:0] clkdiv;
     always @(posedge CLK_i) begin
-        clkdik <= clkdiv + 1;
+        clkdiv <= clkdiv + 1;
     end
     assign Clk_25M = clkdiv[1];
 
