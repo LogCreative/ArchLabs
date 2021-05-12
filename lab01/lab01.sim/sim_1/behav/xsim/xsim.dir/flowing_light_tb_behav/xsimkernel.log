@@ -2,3 +2,6 @@ Running: xsim.dir/flowing_light_tb_behav/xsimk.exe -simmode gui -wdb flowing_lig
 Design successfully loaded
 Design Loading Memory Usage: 5276 KB (Peak: 5276 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 5876 KB (Peak: 5876 KB)
+Simulation CPU Usage: 0 ms
