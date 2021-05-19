@@ -1,0 +1,162 @@
+\documentclass[a4paper,UTF8]{ctexart}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{listings}
+\captionsetup[lstlisting]{labelfont=bf,justification=justified}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{appendix}
+
+\graphicspath{{img/}}
+
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{bookmark}
+\providecommand{\code}[2]{\lstinputlisting[language=#2,caption=\href{run:#1}{\ttfamily #1}]{#1}}
+\providecommand{\img}[1]{\includegraphics[width=0.88\textwidth]{#1}}
+
+% listings
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\lstset{%
+    numbers=left, %行号
+    numberstyle=\tiny\color{grey},
+    showstringspaces=false,
+    showspaces=false,%
+    tabsize=4,%
+    frame=shadowbox,%
+    basicstyle={\ttfamily\scriptsize},%
+    keywordstyle=\color{blue!80!black}\bfseries,%
+    identifierstyle=,%
+    commentstyle=\color{green!50!blue}\itshape,%
+    stringstyle=\color{green!50!black},%
+    rulesepcolor=\color{gray!20!white},
+    breaklines,
+    columns=flexible,
+    extendedchars=false,
+    %mathescape=true,
+    language=verilog,
+}
+
+\begin{document}
+\title{\normalsize \underline{计算机系统结构实验}\\\LARGE 实验 1 报告\\\vspace*{1em}\normalsize FPGA 基础实验 \\ LED Flow Water Light}
+\author{李子龙\\ 518070910095}
+\date{\today}
+\maketitle
+\tableofcontents
+\clearpage
+
+\section{实验目的}
+
+\begin{enumerate}
+    \item 熟悉 Xilinx 逻辑设计工具 Vivado 的基本操作
+    \item 掌握使用 Verilog HDL 进行简单的逻辑设计
+    \item 使用功能仿真与 I/O Planing 添加管脚约束
+    \item 生成 Bitstream 文件并上板验证流水灯
+\end{enumerate}
+
+\section{实验原理与实现}
+
+本实验通过需要实现 8 阶流水灯。首先使用 \verb"cnt_reg" 寄存器记录时钟周期数目：
+
+\begin{lstlisting}
+    reg [23:0] cnt_reg;
+    always @ (posedge clock)
+        begin
+            if (reset)
+                cnt_reg <= 0;
+            else
+                cnt_reg <= cnt_reg + 1;
+        end
+\end{lstlisting}
+
+接着，对于 LED 灯所对应的循环，如果是复位信号，就会改为 \verb"01H"，即仅点亮最低位的灯。当计数器循环满时，如果 LED 是 \verb"80H"，即仅最高位灯亮，则改为 \verb"01H" 仅最低位亮以循环；否则就直接向左移位，以仅点亮下一个高位的灯。
+
+\begin{lstlisting}
+    reg [7:0] light_reg;
+    always @(posedge clock) 
+    begin
+        if (reset) 
+            light_reg <= 8'h01;
+        else if (cnt_reg == 24'hffffff)
+            begin
+                if (light_reg==8'h80)
+                    light_reg <= 8'h01;
+                else
+                    light_reg <= light_reg << 1;
+            end
+    end
+\end{lstlisting}
+当然在上板子后，对于该硬件 xc7k325tffg676-2 需要修改 \verb"reset" 为取反信号，最终实现请见附录 \ref{app:design}。
+
+\appendix
+\section{流水灯设计代码实现}\label{app:design}
+\begin{lstlisting}[caption={flowing_light.v}]
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: SJTU CS
+// Engineer: Zilong Li
+// 
+// Create Date: 2021/05/12 09:10:24
+// Design Name: 
+// Module Name: flowing_light
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module flowing_light (
+    input clock_p,
+    input clock_n,
+    input reset,
+    output [7:0] led
+);
+
+    reg [23:0] cnt_reg;
+    reg [7:0] light_reg;
+
+    IBUFGDS IBUFGDS_inst (
+        .O(CLK_i),
+        .I(clock_p),
+        .IB(clock_n)
+    );
+
+    always @ (posedge CLK_i)
+        begin
+            if (!reset)     // 板子电平取反
+                cnt_reg <= 0;
+            else
+                cnt_reg <= cnt_reg + 1;
+        end
+    always @(posedge CLK_i) 
+        begin
+            if (!reset) 
+                light_reg <= 8'h01;
+            else if (cnt_reg == 24'hffffff)
+                begin
+                    if (light_reg==8'h80)
+                        light_reg <= 8'h01;
+                    else
+                        light_reg <= light_reg << 1;
+                end
+        end
+    assign led = light_reg;
+endmodule
+\end{lstlisting}
+
+% DEPRECATED - NO REPORT REQURIED.
+
+\end{document}
