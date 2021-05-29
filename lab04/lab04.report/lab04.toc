@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}实验目的}{2}{section.1}%
+\contentsline {section}{\numberline {2}原理分析}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}寄存器堆}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}内存单元模块}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}带符号扩展}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}代码实现}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}寄存器堆}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}内存单元模块}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}带符号扩展}{5}{subsection.3.3}%
+\contentsline {section}{\numberline {4}仿真结果}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}寄存器堆}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}内存单元模块}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}带符号扩展}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}实验心得}{8}{section.5}%

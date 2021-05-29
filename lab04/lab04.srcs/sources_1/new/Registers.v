@@ -31,9 +31,9 @@ module Registers(
     input clk
     );
 
-    reg [31:0] RegFile [31:0];      // internal store
-    reg [31:0] ReadData1 = {32{0}};
-    reg [31:0] ReadData2 = {32{0}};
+    reg [31:0] RegFile [31:0];
+    reg [31:0] ReadData1;
+    reg [31:0] ReadData2;
 
     always @(readReg1 or readReg2) begin
         ReadData1 = RegFile[readReg1];

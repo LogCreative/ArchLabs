@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+\tikzstyle{io}=[font=\ttfamily];
+\tikzstyle{lio}=[io,right,xshift=-1em];
+\tikzstyle{rio}=[io,left,xshift=1em];
+
+\draw  (-1.5,2) rectangle (4.5,-1);
+\node[lio] at (-1,1.5) {readReg1};
+\node[lio] at (-1,1) {readReg2};
+\node[lio] at (-1,0.5) {writeReg};
+\node[lio] at (-1,-0.5) {writeData};
+\node[io] (v2) at (1.5,-2) {regWrite};
+\node[rio] at (4,1) {readData1};
+\node[rio] at (4,0) {readData2};
+\node[io] (v1) at (-0.5,-2) {clk};
+\draw (v1) -- (-0.5,-1);
+\draw (v2) -- (1.5,-1);
+
+\draw (-3,1.5) node [io] {[25:21]} edge[->] (-1.5,1.5);
+\draw (-3,1) node [io] {[20:16]} edge[->] (-1.5,1);
+\draw (-3,0.5) node [io] {[4:0]} edge[->] (-1.5,0.5);
+\draw (-3,-0.5) edge[->] (-1.5,-0.5);
+\draw (4.5,1) edge[->] (6,1);
+\draw (4.5,0) edge[->] (6,0);
+\node at (1.5,0.5) {Registers};
+\end{tikzpicture}
