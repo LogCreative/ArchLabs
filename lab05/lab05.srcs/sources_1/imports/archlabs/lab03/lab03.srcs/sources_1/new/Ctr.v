@@ -32,7 +32,8 @@ module Ctr(
     output [1:0] aluOp,
     output jump,
     output zext,
-    output imm
+    output imm,
+    output jal
     );
 
 
@@ -47,6 +48,7 @@ module Ctr(
     reg Jump;
     reg Zext;
     reg Imm;
+    reg Jal;
 
     always @(opCode) begin
         case (opCode)
@@ -63,6 +65,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 0;
                 Imm         = 0;
+                Jal         = 0;
             end
             6'b001000:      // addi
             begin
@@ -77,6 +80,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 0;
                 Imm         = 1;
+                Jal         = 0;
             end
             6'b001100:      // andi
             begin
@@ -91,6 +95,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 1;        // Zero Extended
                 Imm         = 1;
+                Jal         = 0;
             end
             6'b001101:      // ori
             begin
@@ -104,7 +109,8 @@ module Ctr(
                 ALUOp       = 2'b11;
                 Jump        = 0;
                 Zext        = 1;        // Zero Extended
-                Imm         = 1;        
+                Imm         = 1;   
+                Jal         = 0;     
             end
             6'b100011:      // lw
             begin
@@ -119,6 +125,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 0;
                 Imm         = 0;
+                Jal         = 0;
             end
             6'b101011:      // sw
             begin
@@ -133,6 +140,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 0;
                 Imm         = 0;
+                Jal         = 0;
             end
             6'b000100:      // beq
             begin
@@ -147,6 +155,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 0;
                 Imm         = 0;
+                Jal         = 0;
             end
             6'b000010:      // j
             begin
@@ -161,7 +170,23 @@ module Ctr(
                 Jump        = 1;
                 Zext        = 0;
                 Imm         = 0;
+                Jal         = 0;
             end 
+            6'b000011:      // jal
+            begin
+                RegDst      = 0;
+                ALUSrc      = 0;
+                MemToReg    = 0;
+                RegWrite    = 1;    // write to reg
+                MemRead     = 0;
+                MemWrite    = 0;
+                Branch      = 0;
+                ALUOp       = 2'b00;
+                Jump        = 1;
+                Zext        = 0;
+                Imm         = 0;
+                Jal         = 1;
+            end
             default: 
             begin
                 RegDst      = 0;
@@ -175,6 +200,7 @@ module Ctr(
                 Jump        = 0;
                 Zext        = 0;
                 Imm         = 0;
+                Jal         = 0;
             end
         endcase
     end
@@ -190,5 +216,6 @@ module Ctr(
     assign jump = Jump;
     assign zext = Zext;
     assign imm = Imm;
+    assign jal = Jal;
 
 endmodule

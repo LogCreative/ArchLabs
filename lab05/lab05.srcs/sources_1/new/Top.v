@@ -52,7 +52,8 @@ module Top(
     wire ALU_SRC,
         REG_WRITE,
         ZEXT,
-        IMM;
+        IMM,
+        JAL;
 
     Ctr mainCtr(
         .opCode(INST[31:26]),
@@ -66,7 +67,8 @@ module Top(
         .aluSrc(ALU_SRC),
         .regWrite(REG_WRITE),
         .zext(ZEXT),
-        .imm(IMM)
+        .imm(IMM),
+        .jal(JAL)
     );
 
     wire [31:0] READ_DATA1;
@@ -82,8 +84,8 @@ module Top(
         .reset(reset),
         .readReg1(INST[25:21]),
         .readReg2(INST[20:16]),
-        .writeReg(REG_DST ? INST[15:11] : INST[20:16]),
-        .writeData(MEM_TO_REG ? READ_DATA : ALU_RES),
+        .writeReg(JAL ? 31 : (REG_DST ? INST[15:11] : INST[20:16])),
+        .writeData(JAL ? PC : (MEM_TO_REG ? READ_DATA : ALU_RES)),
         .regWrite(REG_WRITE),
         .readData1(READ_DATA1),
         .readData2(READ_DATA2)

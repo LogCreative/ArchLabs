@@ -13,5 +13,5 @@ ori  $2, $0, -1
 add $2, $0, $1          # final save: += 1
 sw  $2, 0($8)
 beq $2, $3, 1
-j 2
+jal 2
 nop
