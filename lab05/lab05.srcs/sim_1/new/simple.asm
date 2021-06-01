@@ -1,17 +1,18 @@
 nop
-lw  $3, 2($8)            # $8 serves as zero register
+lw  $16, 2($0)            # $0 zero register
 nop                      # jump here
-lw  $0, 0($8)
-lw  $1, 1($8)
-sub $2, $0, $1
-and $2, $0, $1
-slt $2, $0, $1
-or  $2, $0, $1
-addi $2, $0, 8
-andi $2, $0, -1
-ori  $2, $0, -1
-add $2, $0, $1          # final save: += 1
-sw  $2, 0($8)
-beq $2, $3, 1
-jal 2
+lw  $8, 0($0)
+lw  $9, 1($0)
+sub $10, $8, $9
+and $10, $8, $9
+jal 10
+slt $10, $8, $9
+or  $10, $8, $9
+addi $10, $8, 8
+andi $10, $8, -1
+ori  $10, $8, -1
+add $10, $8, $9          # final save: += 1
+sw  $10, 0($0)
+beq $10, $16, 1
 nop
+jr $0

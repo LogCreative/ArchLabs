@@ -78,6 +78,7 @@ module Top(
     wire ZERO;
     wire [31:0] ALU_RES;
     wire [31:0] READ_DATA;
+    wire JR;
 
     Registers registers(
         .clk(clk),
@@ -100,7 +101,8 @@ module Top(
     ALUCtr aluctr(
         .funct(IMM ? INST[31:26] : INST[5:0]),
         .aluOp(ALU_OP),
-        .aluCtrOut(ALU_CTR)
+        .aluCtrOut(ALU_CTR),
+        .jr(JR)
     );
 
     ALU alu(
@@ -121,9 +123,9 @@ module Top(
     );
 
     always @(negedge clk) begin
-    PC <= JUMP ? 
+    PC <= JR ? ALU_RES : (JUMP ? 
                 (PC[31:28] + INST[25:0] << 2) :     // 26 -> 28
-                ((BRANCH & ZERO) ? (PC + (OPRAND << 2)) : PC);
+                ((BRANCH & ZERO) ? (PC + (OPRAND << 2)) : PC));
     end
 
 endmodule
