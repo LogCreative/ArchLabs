@@ -50,7 +50,9 @@ module Top(
         MEM_WRITE;
     wire [1:0] ALU_OP;
     wire ALU_SRC,
-        REG_WRITE;
+        REG_WRITE,
+        ZEXT,
+        IMM;
 
     Ctr mainCtr(
         .opCode(INST[31:26]),
@@ -62,7 +64,9 @@ module Top(
         .aluOp(ALU_OP),
         .memWrite(MEM_WRITE),
         .aluSrc(ALU_SRC),
-        .regWrite(REG_WRITE)
+        .regWrite(REG_WRITE),
+        .zext(ZEXT),
+        .imm(IMM)
     );
 
     wire [31:0] READ_DATA1;
@@ -87,11 +91,12 @@ module Top(
 
     signext signExt(
         .inst(INST[15:0]),
+        .zext(ZEXT),
         .data(OPRAND)
     );
 
     ALUCtr aluctr(
-        .funct(INST[5:0]),
+        .funct(IMM ? INST[31:26] : INST[5:0]),
         .aluOp(ALU_OP),
         .aluCtrOut(ALU_CTR)
     );
@@ -116,7 +121,7 @@ module Top(
     always @(negedge clk) begin
     PC <= JUMP ? 
                 (PC[31:28] + INST[25:0] << 2) :     // 26 -> 28
-                ((BRANCH & ZERO) ? (PC + OPRAND << 2) : PC);
+                ((BRANCH & ZERO) ? (PC + (OPRAND << 2)) : PC);
     end
 
 endmodule

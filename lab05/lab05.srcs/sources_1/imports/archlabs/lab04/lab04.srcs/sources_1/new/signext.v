@@ -22,9 +22,10 @@
 
 module signext(
     input [15:0] inst,
+    input zext,
     output [31:0] data
     );
 
-    assign data = {{16 {inst[15]}},inst[15:0]};
+    assign data = {{16 {zext ? 0 : inst[15]}},inst[15:0]};
 
 endmodule
