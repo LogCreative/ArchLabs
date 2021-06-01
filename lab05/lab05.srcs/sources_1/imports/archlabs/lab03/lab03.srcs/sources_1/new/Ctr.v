@@ -60,14 +60,14 @@ module Ctr(
             end
             6'b001000:      // addi
             begin
-                RegDst      = 1;
+                RegDst      = 0;     // target is 20:16
                 ALUSrc      = 1;     // Read Immediate
-                MemToReg    = 0;
-                RegWrite    = 1;
+                MemToReg    = 0;     // from register
+                RegWrite    = 1;     
                 MemRead     = 0;
                 MemWrite    = 0;
                 Branch      = 0;
-                ALUOp       = 2'b10;
+                ALUOp       = 2'b00;    // Add
                 Jump        = 0;
             end
             6'b100011:      // lw
