@@ -43,6 +43,8 @@ module ALU(
                 else ALURes = 0; 
             end
             4'b1100: ALURes = ~(input1 | input2);
+            4'b1000: ALURes = input2 << input1; // sll
+            4'b1001: ALURes = input2 >> input2; // srl
             default: ALURes = 0;
         endcase
         if(ALURes == 0)
