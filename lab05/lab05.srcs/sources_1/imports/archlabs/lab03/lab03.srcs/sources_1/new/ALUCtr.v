@@ -24,13 +24,13 @@ module ALUCtr(
     input [5:0] funct,
     input [1:0] aluOp,
     output [3:0] aluCtrOut,
-    output jr,
-    output shamt
+    output jr
+    // output shamt
     );
 
     reg [3:0] ALUCtrOut;
     reg Jr;
-    reg Shamt;
+    // reg Shamt;
 
     always @(aluOp or funct) begin
         casex ({aluOp, funct})
@@ -51,11 +51,11 @@ module ALUCtr(
         endcase
         if({aluOp, funct} == 8'b10001000) Jr = 1;
         else Jr = 0;
-        if({aluOp, funct} >= 8'b10000000 && {aluOp, funct} <= 8'b10000011) Shamt = 1;
-        else Shamt = 0;
+        // if({aluOp, funct} >= 8'b10000000 && {aluOp, funct} <= 8'b10000011) Shamt = 1;
+        // else Shamt = 0;
     end
     
     assign aluCtrOut = ALUCtrOut;
     assign jr = Jr;
-    assign shamt = Shamt;
+    // assign shamt = Shamt;
 endmodule

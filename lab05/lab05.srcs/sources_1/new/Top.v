@@ -79,15 +79,14 @@ module Top(
     wire [31:0] ALU_RES;
     wire [31:0] READ_DATA;
     wire JR;
-    wire SHAMT;
 
     Registers registers(
         .clk(clk),
         .reset(reset),
         .readReg1(INST[25:21]),
         .readReg2(INST[20:16]),
-        .writeReg(JAL ? 31 : (REG_DST ? INST[15:11] : INST[20:16])),
-        .writeData(JAL ? PC : (MEM_TO_REG ? READ_DATA : ALU_RES)),
+        .writeReg(JAL ? 5'b11111 : (JR ? INST[25:21] : (REG_DST ? INST[15:11] : INST[20:16]))),
+        .writeData(JAL ? PC + 4 : (MEM_TO_REG ? READ_DATA : ALU_RES)), // Jal will jump to PC + 4
         .regWrite(REG_WRITE),
         .readData1(READ_DATA1),
         .readData2(READ_DATA2)
@@ -103,12 +102,11 @@ module Top(
         .funct(IMM ? INST[31:26] : INST[5:0]),
         .aluOp(ALU_OP),
         .aluCtrOut(ALU_CTR),
-        .jr(JR),
-        .shamt(SHAMT)
+        .jr(JR)
     );
 
     ALU alu(
-        .input1(SHAMT ? INST[10:6] : READ_DATA1),
+        .input1(((ALU_CTR == 4'b1000 || ALU_CTR == 4'b1001) && !(INST[31:0] == 0)) ? INST[10:6] : READ_DATA1),  // Avoid nop conflict
         .input2(ALU_SRC ? OPRAND : READ_DATA2),
         .aluCtr(ALU_CTR),
         .zero(ZERO),
