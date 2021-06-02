@@ -79,6 +79,7 @@ module Top(
     wire [31:0] ALU_RES;
     wire [31:0] READ_DATA;
     wire JR;
+    wire SHAMT;
 
     Registers registers(
         .clk(clk),
@@ -102,11 +103,12 @@ module Top(
         .funct(IMM ? INST[31:26] : INST[5:0]),
         .aluOp(ALU_OP),
         .aluCtrOut(ALU_CTR),
-        .jr(JR)
+        .jr(JR),
+        .shamt(SHAMT)
     );
 
     ALU alu(
-        .input1(((ALU_CTR == 4'b1000 || ALU_CTR == 4'b1001) && !(INST[31:0] == 0)) ? INST[10:6] : READ_DATA1),  // Avoid nop conflict
+        .input1(SHAMT ? INST[10:6] : READ_DATA1),  // Avoid nop conflict
         .input2(ALU_SRC ? OPRAND : READ_DATA2),
         .aluCtr(ALU_CTR),
         .zero(ZERO),
