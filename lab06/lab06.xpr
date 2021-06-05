@@ -3,10 +3,10 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="E:/archlabs/lab06/lab06.xpr">
+<Project Version="7" Minor="39" Path="C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="6ee1e0c17d4246fd90f5fe9d8e561b43"/>
+    <Option Name="Id" Val="c4d99c989b8b471ab528a5b5198a4aba"/>
     <Option Name="Part" Val="xc7k325tffg676-2"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -50,25 +50,19 @@
     <Option Name="XSimTimeUnit" Val="ns"/>
     <Option Name="XSimArrayDisplayLimit" Val="1024"/>
     <Option Name="XSimTraceLimit" Val="65536"/>
+    <Option Name="SimTypes" Val="rtl"/>
+    <Option Name="SimTypes" Val="bfm"/>
+    <Option Name="SimTypes" Val="tlm"/>
+    <Option Name="SimTypes" Val="tlm_dpi"/>
     <Option Name="MEMEnableMemoryMapGeneration" Val="TRUE"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/sources_1/new/Top.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/new/Top.v"/>
-          <Attr Name="ImportTime" Val="1622600669"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/archlabs/lab03/lab03.srcs/sources_1/new/ALU.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/imports/archlabs/lab03/lab03.srcs/sources_1/new/ALU.v"/>
-          <Attr Name="ImportTime" Val="1622567242"/>
+          <Attr Name="ImportTime" Val="1622567241"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -76,9 +70,8 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/archlabs/lab03/lab03.srcs/sources_1/new/ALUCtr.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/imports/archlabs/lab03/lab03.srcs/sources_1/new/ALUCtr.v"/>
-          <Attr Name="ImportTime" Val="1622600678"/>
+          <Attr Name="ImportTime" Val="1622620525"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -86,9 +79,8 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/archlabs/lab03/lab03.srcs/sources_1/new/Ctr.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/imports/archlabs/lab03/lab03.srcs/sources_1/new/Ctr.v"/>
-          <Attr Name="ImportTime" Val="1622562132"/>
+          <Attr Name="ImportTime" Val="1622562131"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -96,9 +88,8 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/new/InstMemory.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/new/InstMemory.v"/>
-          <Attr Name="ImportTime" Val="1622598750"/>
+          <Attr Name="ImportTime" Val="1622001296"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -106,7 +97,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/archlabs/lab04/lab04.srcs/sources_1/new/Registers.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/imports/archlabs/lab04/lab04.srcs/sources_1/new/Registers.v"/>
           <Attr Name="ImportTime" Val="1622000044"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -116,7 +106,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/archlabs/lab04/lab04.srcs/sources_1/new/dataMemory.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/imports/archlabs/lab04/lab04.srcs/sources_1/new/dataMemory.v"/>
           <Attr Name="ImportTime" Val="1621989988"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -126,9 +115,15 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/archlabs/lab04/lab04.srcs/sources_1/new/signext.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../lab05/lab05.srcs/sources_1/imports/archlabs/lab04/lab04.srcs/sources_1/new/signext.v"/>
-          <Attr Name="ImportTime" Val="1622559150"/>
+          <Attr Name="ImportTime" Val="1622559149"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/Top.v">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -147,7 +142,6 @@
       </Config>
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
-      <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="Top"/>
@@ -186,7 +180,9 @@
   <Runs Version="1" Minor="10">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7k325tffg676-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
@@ -194,7 +190,9 @@
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg676-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

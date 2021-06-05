@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Basic_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Basic_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1246941046fs"></ZoomEndTime>
+      <Cursor1Time time="800890000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="285"></NameColumnWidth>
+      <ValueColumnWidth column_width="526"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="30" />
+   <wvobject fp_name="/Basic_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/INST" type="array">
+      <obj_property name="ElementShortName">INST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INST[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/DataMemory/MemFile" type="array">
+      <obj_property name="ElementShortName">MemFile[0:63][31:0]</obj_property>
+      <obj_property name="ObjectShortName">MemFile[0:63][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/registers/RegFile" type="array">
+      <obj_property name="ElementShortName">RegFile[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegFile[31:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/registers/writeReg" type="array">
+      <obj_property name="ElementShortName">writeReg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">writeReg[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/registers/readReg1" type="array">
+      <obj_property name="ElementShortName">readReg1[25:21]</obj_property>
+      <obj_property name="ObjectShortName">readReg1[25:21]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/registers/readReg2" type="array">
+      <obj_property name="ElementShortName">readReg2[20:16]</obj_property>
+      <obj_property name="ObjectShortName">readReg2[20:16]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/instMemory/readAddress" type="array">
+      <obj_property name="ElementShortName">readAddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readAddress[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/REG_DST" type="logic">
+      <obj_property name="ElementShortName">REG_DST</obj_property>
+      <obj_property name="ObjectShortName">REG_DST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/JUMP" type="logic">
+      <obj_property name="ElementShortName">JUMP</obj_property>
+      <obj_property name="ObjectShortName">JUMP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/BRANCH" type="logic">
+      <obj_property name="ElementShortName">BRANCH</obj_property>
+      <obj_property name="ObjectShortName">BRANCH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/MEM_READ" type="logic">
+      <obj_property name="ElementShortName">MEM_READ</obj_property>
+      <obj_property name="ObjectShortName">MEM_READ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/MEM_TO_REG" type="logic">
+      <obj_property name="ElementShortName">MEM_TO_REG</obj_property>
+      <obj_property name="ObjectShortName">MEM_TO_REG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/MEM_WRITE" type="logic">
+      <obj_property name="ElementShortName">MEM_WRITE</obj_property>
+      <obj_property name="ObjectShortName">MEM_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ALU_OP" type="array">
+      <obj_property name="ElementShortName">ALU_OP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ALU_SRC" type="logic">
+      <obj_property name="ElementShortName">ALU_SRC</obj_property>
+      <obj_property name="ObjectShortName">ALU_SRC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/REG_WRITE" type="logic">
+      <obj_property name="ElementShortName">REG_WRITE</obj_property>
+      <obj_property name="ObjectShortName">REG_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ZEXT" type="logic">
+      <obj_property name="ElementShortName">ZEXT</obj_property>
+      <obj_property name="ObjectShortName">ZEXT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/IMM" type="logic">
+      <obj_property name="ElementShortName">IMM</obj_property>
+      <obj_property name="ObjectShortName">IMM</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/JAL" type="logic">
+      <obj_property name="ElementShortName">JAL</obj_property>
+      <obj_property name="ObjectShortName">JAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/READ_DATA1" type="array">
+      <obj_property name="ElementShortName">READ_DATA1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">READ_DATA1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/READ_DATA2" type="array">
+      <obj_property name="ElementShortName">READ_DATA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">READ_DATA2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/OPRAND" type="array">
+      <obj_property name="ElementShortName">OPRAND[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OPRAND[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ALU_CTR" type="array">
+      <obj_property name="ElementShortName">ALU_CTR[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_CTR[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ZERO" type="logic">
+      <obj_property name="ElementShortName">ZERO</obj_property>
+      <obj_property name="ObjectShortName">ZERO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ALU_RES" type="array">
+      <obj_property name="ElementShortName">ALU_RES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_RES[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/READ_DATA" type="array">
+      <obj_property name="ElementShortName">READ_DATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">READ_DATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/JR" type="logic">
+      <obj_property name="ElementShortName">JR</obj_property>
+      <obj_property name="ObjectShortName">JR</obj_property>
+   </wvobject>
+</wave_config>

@@ -21,7 +21,6 @@
 
 
 module InstMemory(
-    input clk,
     input [31:0] readAddress,
     output [31:0] inst
     );

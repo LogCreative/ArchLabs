@@ -1,4 +1,5 @@
 \contentsline {section}{\numberline {1}实验目的}{2}{section.1}%
 \contentsline {section}{\numberline {2}原理分析}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}指令存储器}{2}{subsection.2.1}%
 \contentsline {section}{\numberline {3}仿真结果}{2}{section.3}%
 \contentsline {section}{\numberline {4}实验心得}{2}{section.4}%
