@@ -1,0 +1,26 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c4d99c989b8b471ab528a5b5198a4aba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Basic_tb_behav xil_defaultlib.Basic_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 5 for port 'writeReg' [C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sources_1/new/Top.v:150]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'aluCtrOut' [C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sources_1/new/Top.v:167]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'aluCtr' [C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sources_1/new/Top.v:175]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'aluRes' [C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sources_1/new/Top.v:177]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'address' [C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sources_1/new/Top.v:183]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'readData' [C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sources_1/new/Top.v:187]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.InstMemory
+Compiling module xil_defaultlib.Ctr
+Compiling module xil_defaultlib.Registers
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.ALUCtr
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.dataMemory
+Compiling module xil_defaultlib.Top
+Compiling module xil_defaultlib.Basic_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Basic_tb_behav
