@@ -12,3 +12,18 @@
 start_gui
 open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.xpr
 update_compile_order -fileset sources_1
+launch_simulation
+source Basic_tb.tcl
+relaunch_sim
+close_sim
+launch_simulation
+source Basic_tb.tcl
+relaunch_sim
+relaunch_sim
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sim_1/imports/new/mem_debug.mem
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim

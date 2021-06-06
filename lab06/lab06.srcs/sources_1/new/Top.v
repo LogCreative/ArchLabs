@@ -88,7 +88,7 @@ module Top(
     reg EX_JR;
     reg EX_ZERO;
     reg [31:0] EX_ALU_RES;
-    reg EX_WRITE_REG;
+    reg [4:0] EX_WRITE_REG;
 
     reg EX_JUMP;
     reg EX_BRANCH;
@@ -112,12 +112,12 @@ module Top(
 
     reg [31:0] MEM_READ_DATA;
     reg [31:0] MEM_ALU_RES;
-    reg [31:0] MEM_WRITE_REG;
+    reg [4:0] MEM_WRITE_REG;
 
     // Write Back (WB)
     wire REG_WRITE_WB = MEM_REG_WRITE;
     wire [31:0] WRITE_DATA_WB = MEM_JAL ? MEM_PC : (MEM_MEM_TO_REG ? MEM_READ_DATA : MEM_ALU_RES);
-    wire [4:0] WRITE_REG_WB = MEM_MEM_TO_REG;
+    wire [4:0] WRITE_REG_WB = MEM_WRITE_REG;
 
     // IF 
     InstMemory instMemory(
