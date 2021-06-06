@@ -32,15 +32,15 @@ module dataMemory(
     reg [31:0] MemFile[0:63];
 
     always @(memRead or address) begin
-        if(address<31'h00000020)
-            readData = MemFile[address];
+        if((address>>2)<31'h00000020)
+            readData = MemFile[address>>2];
         else 
             readData = 31'h00000000;
     end
 
     always @(negedge Clk) begin
-        if(memWrite && address<31'h00000020)
-            MemFile[address] = writeData;
+        if(memWrite && (address>>2)<31'h00000020)
+            MemFile[address>>2] = writeData;
     end
 
 endmodule

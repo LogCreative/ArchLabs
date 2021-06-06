@@ -21,6 +21,7 @@
 
 
 module ALUCtr(
+    input nop,
     input [5:0] funct,
     input [1:0] aluOp,
     output [3:0] aluCtrOut,
@@ -49,9 +50,10 @@ module ALUCtr(
             8'b11001101:    ALUCtrOut = 4'b0001;
             default:        ALUCtrOut = 4'b1111;
         endcase
+        if(nop==1) ALUCtrOut = 4'b1111;
         if({aluOp, funct} == 8'b10001000) Jr = 1;
         else Jr = 0;
-        if({aluOp, funct} >= 8'b10000000 && {aluOp, funct} <= 8'b10000011) Shamt = 1;
+        if(nop == 0 && {aluOp, funct} >= 8'b10000000 && {aluOp, funct} <= 8'b10000011) Shamt = 1;
         else Shamt = 0;
     end
     

@@ -162,6 +162,7 @@ module Top(
 
     // EX
     ALUCtr aluctr(
+        .nop(ID_INST == 0 ? 1 : 0),
         .funct(ID_IMM ? ID_INST[31:26] : ID_INST[5:0]),
         .aluOp(ID_ALU_OP),
         .aluCtrOut(ALU_CTR),

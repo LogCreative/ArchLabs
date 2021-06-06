@@ -100,6 +100,7 @@ module Top(
     );
 
     ALUCtr aluctr(
+        .nop(INST == 0 ? 1 : 0),
         .funct(IMM ? INST[31:26] : INST[5:0]),
         .aluOp(ALU_OP),
         .aluCtrOut(ALU_CTR),

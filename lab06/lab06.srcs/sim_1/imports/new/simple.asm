@@ -1,9 +1,9 @@
 nop
-lw  $16, 2($0)            # $0 zero register
+lw  $16, 8($0)            # $0 zero register
 jal 4
 nop
 lw  $8, 0($0)
-lw  $9, 1($0)
+lw  $9, 4($0)
 sub $10, $8, $9
 and $10, $8, $9
 slt $10, $8, $9
