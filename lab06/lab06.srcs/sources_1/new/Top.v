@@ -119,6 +119,32 @@ module Top(
     wire [31:0] WRITE_DATA_WB = MEM_JAL ? MEM_PC : (MEM_MEM_TO_REG ? MEM_READ_DATA : MEM_ALU_RES);
     wire [4:0] WRITE_REG_WB = MEM_WRITE_REG;
 
+    // Forwarding
+    wire [1:0] ForwardA = ((EX_REG_WRITE && 
+        (EX_WRITE_REG != 0) && 
+        (EX_WRITE_REG == ID_INST[25:21])) ? 
+            2'b10 : 
+            ((MEM_REG_WRITE && (MEM_WRITE_REG != 0) 
+            && !(EX_REG_WRITE && (EX_WRITE_REG != 0)
+                && (EX_WRITE_REG != ID_INST[25:21]))
+            && (MEM_WRITE_REG == ID_INST[25:21])) ? 
+                2'b01 : 
+                2'b00));
+    
+    wire [1:0] ForwardB = ((EX_REG_WRITE && 
+        (EX_WRITE_REG != 0) && 
+        (EX_WRITE_REG == ID_INST[20:16])) ? 
+            2'b10 :
+            ((MEM_REG_WRITE && (MEM_WRITE_REG != 0) 
+            && !(EX_REG_WRITE && (EX_WRITE_REG != 0)
+                && (EX_WRITE_REG != ID_INST[20:16]))
+            && (MEM_WRITE_REG == ID_INST[20:16])) ? 
+                2'b01 : 
+                2'b00));
+
+    // Stall
+    wire stalling = (ID_MEM_READ && ((ID_INST[20:16] == IF_INST[25:21]) || (ID_INST[20:16] == IF_INST[20:16]))) ? 1 : 0;
+
     // IF 
     InstMemory instMemory(
         .readAddress(PC),
@@ -171,8 +197,16 @@ module Top(
     );
 
     ALU alu(
-        .input1(SHAMT ? ID_INST[10:6] : ID_READ_DATA1),
-        .input2(ID_ALU_SRC ? ID_OPAND : ID_READ_DATA2),
+        .input1(SHAMT ? ID_INST[10:6] : 
+            (ForwardA == 2'b00 ? ID_READ_DATA1 :
+                (ForwardA == 2'b10 ? EX_ALU_RES : 
+                    WRITE_DATA_WB))
+        ),
+        .input2(ID_ALU_SRC ? ID_OPAND : 
+            (ForwardB == 2'b00 ? ID_READ_DATA2 :
+                (ForwardB == 2'b10 ? EX_ALU_RES :
+                    WRITE_DATA_WB))
+        ),
         .aluCtr(ALU_CTR),
         .zero(ZERO_EX),
         .aluRes(ALU_RES_EX)
