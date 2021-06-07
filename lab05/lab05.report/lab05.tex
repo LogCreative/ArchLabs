@@ -69,13 +69,305 @@
 
 \subsection{指令存储器}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{instruction.pdf}
+    \caption{指令存储器}
+    \label{fig:instr}
+\end{figure}
+
+指令存储器通过读取 PC 的值获取需要读取的指令地址。如果读取的内存地址越界，就读取第一个指令。
+
+指令存储器被设定为 64 行。指令存储器的实现如下：
+
+\begin{lstlisting}[caption=InstMemory.v]
+module InstMemory(
+    input [31:0] readAddress,
+    output [31:0] inst
+    );
+
+    reg [31:0] instructions [0:63];
+    assign inst = instructions[readAddress / 4 < 64 ? readAddress / 4 : 0];
+
+endmodule
+\end{lstlisting}
+
+\subsection{顶层模块设计}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{struct.pdf}
+    \caption{顶层设计}
+    \label{fig:top}
+\end{figure}
+
+图 \ref{fig:top} 展示了针对 9 条指令的顶层模块设计。而针对 16 条指令，需要对一些输入输出进行扩展。
+
+Ctr 模块会被扩展三个输出信号。
+\begin{table}[htbp]
+    \centering
+    \caption{Ctr 的扩展信号}
+    \begin{tabular}{>{\sffamily}cl>{\ttfamily}c>{\ttfamily}c}
+        \toprule
+        信号 & 描述 & 输出 & 输入\\
+        \midrule
+        zext & 是否为零扩展 & Ctr & sigext \\
+        imm & 是否是立即数命令 & Ctr & ALUCtr \\
+        jal & 是否是跳转链接命令 & Ctr & Registers \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+扩展信号输出后就可以对于增添的指令进行识别，在实验 3 表 2 的基础上扩增：
+\begin{table}[htbp]
+    \centering
+    \caption{增扩指令}
+    \begin{tabular}{>{\sffamily}c>{\ttfamily}c>{\ttfamily}c>{\ttfamily}c>{\ttfamily}c}
+        \toprule
+        信号 & addi & andi & ori & jal \\
+        \midrule
+        zext & 0 & 1 & 1 & 0\\
+        imm & 1 & 1 & 1 & 0\\
+        jal & 0 & 0 & 0 & 1\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+针对 ALUCtr 也会进行信号扩增。
+\begin{table}[htbp]
+    \centering
+    \caption{ALUCtr 的扩展信号}
+    \begin{tabular}{>{\sffamily}cl>{\ttfamily}c>{\ttfamily}c}
+        \toprule
+        信号 & 描述 & 输出 & 输入\\
+        \midrule
+        nop & 是否为空指令 & InstMemory & ALUCtr \\
+        jr & 是否为跳转寄存器指令 & ALUCtr & PC \\
+        shamt & ALU第一个信号是否是 shamt 位 & ALUCtr & ALU \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+添加 \verb"nop" 信号是因为其指令与 \verb"sll" 冲突。
+\begin{table}[htbp]
+    \centering
+    \caption{增广指令}
+    \begin{tabular}{>{\sffamily}c>{\ttfamily}c>{\ttfamily}c>{\ttfamily}c>{\ttfamily}c>{\ttfamily}c>{\ttfamily}c|>{\ttfamily}c}
+        \toprule
+        指令 & op & rs & rt & rd & shamt & funct & ALUCtrOut \\
+        \midrule
+        nop & 000000 & 00000 & 00000 & 00000 & 00000 & 000000 & 1111\\
+        sll & 000000 & 00000 & rt & rd & shamt & 000000 & 1000\\
+        srl & 000000 & 00000 & rt & rd & shamt & 000010 & 1001\\
+        jr & 000000 & rs & 00000 & 00000 & 00000 & 001000 & 1111\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+添加这些数据线后，就可以支持 16 条指令了。并注意对 JAL 进行特殊的处理。
+
+\begin{lstlisting}[caption=Top.v]
+    module Top(
+        input clk,
+        input reset
+    );
+
+    reg [31:0] PC;
+
+    always @(posedge clk) begin
+        if(reset)
+            PC <= 0;
+        else begin
+            PC <= PC + 4;
+        end
+    end
+
+    wire [31:0] INST;
+
+    InstMemory instMemory(
+        .readAddress(PC),
+        .inst(INST)
+    );
+
+    wire REG_DST,
+        JUMP,
+        BRANCH,
+        MEM_READ,
+        MEM_TO_REG,
+        MEM_WRITE;
+    wire [1:0] ALU_OP;
+    wire ALU_SRC,
+        REG_WRITE,
+        ZEXT,
+        IMM,
+        JAL;
+
+    Ctr mainCtr(
+        .opCode(INST[31:26]),
+        .regDst(REG_DST),
+        .jump(JUMP),
+        .branch(BRANCH),
+        .memRead(MEM_READ),
+        .memToReg(MEM_TO_REG),
+        .aluOp(ALU_OP),
+        .memWrite(MEM_WRITE),
+        .aluSrc(ALU_SRC),
+        .regWrite(REG_WRITE),
+        .zext(ZEXT),
+        .imm(IMM),
+        .jal(JAL)
+    );
+
+    wire [31:0] READ_DATA1;
+    wire [31:0] READ_DATA2;
+    wire [31:0] OPRAND;
+    wire [3:0] ALU_CTR;
+    wire ZERO;
+    wire [31:0] ALU_RES;
+    wire [31:0] READ_DATA;
+    wire JR;
+    wire SHAMT;
+
+    Registers registers(
+        .clk(clk),
+        .reset(reset),
+        .readReg1(INST[25:21]),
+        .readReg2(INST[20:16]),
+        .writeReg(JAL ? 5'b11111 : (JR ? INST[25:21] : (REG_DST ? INST[15:11] : INST[20:16]))),
+        .writeData(JAL ? PC + 4 : (MEM_TO_REG ? READ_DATA : ALU_RES)), // Jal will jump to PC + 4
+        .regWrite(REG_WRITE),
+        .readData1(READ_DATA1),
+        .readData2(READ_DATA2)
+    );
+
+    signext signExt(
+        .inst(INST[15:0]),
+        .zext(ZEXT),
+        .data(OPRAND)
+    );
+
+    ALUCtr aluctr(
+        .nop(INST == 0 ? 1'b1 : 1'b0), // Avoid nop conflict
+        .funct(IMM ? INST[31:26] : INST[5:0]),
+        .aluOp(ALU_OP),
+        .aluCtrOut(ALU_CTR),
+        .jr(JR),
+        .shamt(SHAMT)
+    );
+
+    ALU alu(
+        .input1(SHAMT ? INST[10:6] : READ_DATA1),  
+        .input2(ALU_SRC ? OPRAND : READ_DATA2),
+        .aluCtr(ALU_CTR),
+        .zero(ZERO),
+        .aluRes(ALU_RES)
+    );
+
+    dataMemory DataMemory(
+        .Clk(clk),
+        .address(ALU_RES),
+        .writeData(READ_DATA2),
+        .memWrite(MEM_WRITE),
+        .memRead(MEM_READ),
+        .readData(READ_DATA)
+    );
+
+    always @(negedge clk) begin
+    PC <= JR ? ALU_RES : (JUMP ? 
+                (PC[31:28] + INST[25:0] << 2) :     // 26 -> 28
+                ((BRANCH & ZERO) ? (PC + (OPRAND << 2)) : PC));
+    end
+
+endmodule
+\end{lstlisting}
 
 
 \section{仿真结果}
 
+使用了下面的指令文件进行仿真。该指令文件主要的作用是测试所有的运算功能，并在每一个循环对 10 号寄存器 + 1，并存储到 0 号存储单元中，直到其超过刚开始的限制寄存器的存储数字（这里是 4），之后就会进入短循环，不会再对寄存器和存储器进行修改。
+
+\begin{lstlisting}[caption=simple.asm]
+nop
+lw  $16, 8($0)            # $0 zero register
+jal 4
+nop
+lw  $8, 0($0)
+lw  $9, 4($0)
+sub $10, $8, $9
+and $10, $8, $9
+slt $10, $8, $9
+or  $10, $8, $9
+addi $10, $8, 8
+andi $10, $8, -1
+ori  $10, $8, -1
+sll $10, $8, 1
+srl $10, $8, 1
+add $10, $8, $9          # final save: += 1
+sw  $10, 0($0)
+beq $10, $16, 1
+jr $31
+j 16
+\end{lstlisting}
+
+\begin{lstlisting}[caption=mem\_data.mem]
+00000001
+00000001
+00000004
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+\end{lstlisting}
+
+激励文件加载指令集的时候，要注意 \verb"$readmemb" 是二进制读取，\verb"$readmemh" 是十六进制读取。
+
+\begin{lstlisting}[caption=Basic\_tb.v]
+module Basic_tb(
+
+    );
+
+    reg clk;
+    reg reset;
+
+    Top Proc(.clk(clk),.reset(reset));
+
+    initial begin
+        $readmemb("mem_inst.mem",Proc.instMemory.instructions);
+        $readmemh("mem_data.mem",Proc.DataMemory.MemFile,10'h0);
+        reset = 1;
+        clk = 0;
+    end
+
+    always #10 clk = ~clk;
+
+    initial begin
+        #80 reset = 0;
+    end
+
+endmodule
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figure2.png}
+    \caption{16条指令的仿真结果}
+    \label{fig:16}
+\end{figure}
+
+运算细节见图 \ref{fig:calcde}。所有的运算都得到了正确的结果。
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{calcdetail.png}
+    \includegraphics[width=\textwidth]{memdetail.png}
+    \caption{运算细节}
+    \label{fig:calcde}
+\end{figure}
 
 \section{实验心得}
 
-
+本次实验调试时间较长，花费近 8 个小时。主要是顶层设计的连线方案比较复杂，对于增扩的指令，需要重新设计端口加以实现。查看波形进行逐个波形的调试，有助于排查故障。这里面对于 ALUCtr 使用了 nop 扩增非常关键，否则会导致空指令执行了某些移位操作导致 0 寄存器非零，从而影响下面数据的读取。本次实验增加了我对单周期处理器设计的理解，对于理解一些原理有很大的帮助。
 
 \end{document}

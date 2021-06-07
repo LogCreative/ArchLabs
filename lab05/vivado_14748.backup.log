@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Jun  7 19:15:17 2021
+# Process ID: 14748
+# Current directory: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5920 C:\Users\lizil\Desktop\SEIEE4th\ArchLabs\lab05\lab05.xpr
+# Log file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/vivado.log
+# Journal file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.report/lab05.img/Basic_tb_behav16.wcfg'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:09 . Memory (MB): peak = 676.141 ; gain = 80.730
+update_compile_order -fileset sources_1
+update_files -from_files C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.report/img/Basic_tb_behav16.wcfg -to_files C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.report/lab05.img/Basic_tb_behav16.wcfg -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.report/lab05.img/Basic_tb_behav16.wcfg' with file 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.report/img/Basic_tb_behav16.wcfg'.

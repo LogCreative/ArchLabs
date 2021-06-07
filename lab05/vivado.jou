@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Jun  7 20:33:55 2021
+# Process ID: 18316
+# Current directory: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9356 C:\Users\lizil\Desktop\SEIEE4th\ArchLabs\lab05\lab05.xpr
+# Log file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/vivado.log
+# Journal file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab05/lab05.report/img/Basic_tb_behav16.wcfg
+source Basic_tb.tcl
+run 1 us
+run 1 us
+relaunch_sim
+run 1 us
+close_sim
+close_project
+open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source Basic_tb.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim

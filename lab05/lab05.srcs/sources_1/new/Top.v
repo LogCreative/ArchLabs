@@ -100,7 +100,7 @@ module Top(
     );
 
     ALUCtr aluctr(
-        .nop(INST == 0 ? 1 : 0),
+        .nop(INST == 0 ? 1'b1 : 1'b0), // Avoid nop conflict
         .funct(IMM ? INST[31:26] : INST[5:0]),
         .aluOp(ALU_OP),
         .aluCtrOut(ALU_CTR),
@@ -109,7 +109,7 @@ module Top(
     );
 
     ALU alu(
-        .input1(SHAMT ? INST[10:6] : READ_DATA1),  // Avoid nop conflict
+        .input1(SHAMT ? INST[10:6] : READ_DATA1),  
         .input2(ALU_SRC ? OPRAND : READ_DATA2),
         .aluCtr(ALU_CTR),
         .zero(ZERO),

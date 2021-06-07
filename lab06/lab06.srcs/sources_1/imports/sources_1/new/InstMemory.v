@@ -26,6 +26,6 @@ module InstMemory(
     );
 
     reg [31:0] instructions [0:63];
-    assign inst = instructions[readAddress / 4 < 1023 ? readAddress / 4 : 0];
+    assign inst = instructions[readAddress / 4 < 64 ? readAddress / 4 : 0];
 
 endmodule
