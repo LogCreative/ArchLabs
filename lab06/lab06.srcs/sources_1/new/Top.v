@@ -308,22 +308,39 @@ module Top(
             ID_OPAND <= OPAND_ID;
             ID_INST <= IF_INST;
 
-            ID_REG_DST <= REG_DST_ID;
-            ID_JUMP <= JUMP_ID;
-            ID_BRANCH <= BRANCH_ID;
-            ID_MEM_READ <= MEM_READ_ID;
-            ID_MEM_TO_REG <= MEM_TO_REG_ID;
-            ID_MEM_WRITE <= MEM_WRITE_ID;
-            ID_ALU_OP <= ALU_OP_ID;
-            ID_ALU_SRC <= ALU_SRC_ID;
-            ID_IMM <= IMM_ID;
-            ID_JAL <= JAL_ID;
-            ID_REG_WRITE <= REG_WRITE_ID;
+            if(stalling) begin
+                ID_REG_DST <= 0;
+                ID_JUMP <= 0;
+                ID_BRANCH <= 0;
+                ID_MEM_READ <= 0;
+                ID_MEM_TO_REG <= 0;
+                ID_MEM_WRITE <= 0;
+                ID_ALU_OP <= 0;
+                ID_ALU_SRC <= 0;
+                ID_IMM <= 0;
+                ID_JAL <= 0;
+                ID_REG_WRITE <= 0;
+            end
+            else begin
+                ID_REG_DST <= REG_DST_ID;
+                ID_JUMP <= JUMP_ID;
+                ID_BRANCH <= BRANCH_ID;
+                ID_MEM_READ <= MEM_READ_ID;
+                ID_MEM_TO_REG <= MEM_TO_REG_ID;
+                ID_MEM_WRITE <= MEM_WRITE_ID;
+                ID_ALU_OP <= ALU_OP_ID;
+                ID_ALU_SRC <= ALU_SRC_ID;
+                ID_IMM <= IMM_ID;
+                ID_JAL <= JAL_ID;
+                ID_REG_WRITE <= REG_WRITE_ID;
+            end
 
             // IF
-            PC <= PC + 4;
-            IF_PC <= PC;            // Has already been PC + 4
-            IF_INST <= INST_IF;
+            if(stalling == 0) begin
+                PC <= PC + 4;
+                IF_PC <= PC;            // Has already been PC + 4
+                IF_INST <= INST_IF;
+            end
         end
     end
 
