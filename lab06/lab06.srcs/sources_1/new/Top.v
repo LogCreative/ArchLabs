@@ -25,9 +25,8 @@ module Top(
     input reset
     );
 
-    // TODO: reverse the assignment order
     // Instruction Fetch (IF)
-    reg [31:0] PC;          // TODO: the choice of PC
+    reg [31:0] PC;
     reg [31:0] IF_PC;
 
     wire [31:0] INST_IF;
@@ -54,7 +53,7 @@ module Top(
     wire [31:0] READ_DATA1_ID;
     wire [31:0] READ_DATA2_ID;
 
-    wire [31:0] OPAND_ID;
+    wire [31:0] OPRAND_ID;
 
     reg ID_REG_DST;
     reg ID_JUMP;
@@ -70,13 +69,15 @@ module Top(
 
     reg [31:0] ID_READ_DATA1;
     reg [31:0] ID_READ_DATA2;
-    reg [31:0] ID_OPAND;
+    reg [31:0] ID_OPRAND;
     reg [31:0] ID_INST;
+
+    wire [31:0] BRANCH_PC_ID = IF_PC + 4 + (OPRAND_ID << 2);    // hasn't been PC + 4
 
     // Execution (EX)
     reg [31:0] EX_PC;
     reg [31:0] EX_JUMP_PC;
-    reg [31:0] EX_BRANCH_PC;
+    // reg [31:0] EX_BRANCH_PC;
     
     wire ZERO_EX;
     wire [31:0] ALU_RES_EX;
@@ -116,7 +117,7 @@ module Top(
 
     // Write Back (WB)
     wire REG_WRITE_WB = MEM_REG_WRITE;
-    wire [31:0] WRITE_DATA_WB = MEM_JAL ? MEM_PC : (MEM_MEM_TO_REG ? MEM_READ_DATA : MEM_ALU_RES);
+    wire [31:0] WRITE_DATA_WB = MEM_JAL ? MEM_PC + 4 : (MEM_MEM_TO_REG ? MEM_READ_DATA : MEM_ALU_RES); // The next PC for jal
     wire [4:0] WRITE_REG_WB = MEM_WRITE_REG;
 
     // Forwarding
@@ -126,7 +127,7 @@ module Top(
             2'b10 : 
             ((MEM_REG_WRITE & (MEM_WRITE_REG != 0) 
             // & (!(EX_REG_WRITE & (EX_WRITE_REG != 0)
-            //     & (EX_WRITE_REG != ID_INST[25:21])))
+            //     & (EX_WRITE_REG != ID_INST[25:21]))) 
             & (MEM_WRITE_REG == ID_INST[25:21])) ? 
                 2'b01 : 
                 2'b00));
@@ -142,8 +143,22 @@ module Top(
                 2'b01 : 
                 2'b00));
 
+    wire [31:0] ForwardA_RES = 
+            ForwardA == 2'b00 ? ID_READ_DATA1 :
+                (ForwardA == 2'b10 ? EX_ALU_RES : 
+                    WRITE_DATA_WB);
+    
+    wire [31:0] ForwardB_RES =
+            ForwardB == 2'b00 ? ID_READ_DATA2 :
+                (ForwardB == 2'b10 ? EX_ALU_RES :
+                    WRITE_DATA_WB);
+            
+
     // Stall
     wire stalling = (ID_MEM_READ & ((ID_INST[20:16] == IF_INST[25:21]) | (ID_INST[20:16] == IF_INST[20:16]))) ? 1 : 0;
+
+    // predict-not-taken
+    wire BEQ = (READ_DATA1_ID == READ_DATA2_ID);
 
     // IF 
     InstMemory instMemory(
@@ -173,9 +188,9 @@ module Top(
         .reset(reset),
         .readReg1(IF_INST[25:21]),
         .readReg2(IF_INST[20:16]),
-        .writeReg(WRITE_REG_WB),                // After write back
-        .writeData(WRITE_DATA_WB),               // ...
-        .regWrite(REG_WRITE_WB),                // ...
+        .writeReg(WRITE_REG_WB),            // After write back
+        .writeData(WRITE_DATA_WB),          // ...
+        .regWrite(REG_WRITE_WB),            // ...
         .readData1(READ_DATA1_ID),
         .readData2(READ_DATA2_ID)
     );
@@ -183,7 +198,7 @@ module Top(
     signext signExt(
         .inst(IF_INST[15:0]),
         .zext(ZEXT),
-        .data(OPAND_ID)
+        .data(OPRAND_ID)
     );
 
     // EX
@@ -197,16 +212,8 @@ module Top(
     );
 
     ALU alu(
-        .input1(SHAMT ? ID_INST[10:6] : 
-            (ForwardA == 2'b00 ? ID_READ_DATA1 :
-                (ForwardA == 2'b10 ? EX_ALU_RES : 
-                    WRITE_DATA_WB))
-        ),
-        .input2(ID_ALU_SRC ? ID_OPAND : 
-            (ForwardB == 2'b00 ? ID_READ_DATA2 :
-                (ForwardB == 2'b10 ? EX_ALU_RES :
-                    WRITE_DATA_WB))
-        ),
+        .input1(SHAMT ? ID_INST[10:6] : ForwardA_RES),
+        .input2(ID_ALU_SRC ? ID_OPRAND : ForwardB_RES),
         .aluCtr(ALU_CTR),
         .zero(ZERO_EX),
         .aluRes(ALU_RES_EX)
@@ -216,7 +223,7 @@ module Top(
     dataMemory DataMemory(
         .Clk(clk),
         .address(EX_ALU_RES),
-        .writeData(EX_READ_DATA2),
+        .writeData(ForwardB_RES),
         .memWrite(EX_MEM_WRITE),
         .memRead(EX_MEM_READ),
         .readData(READ_DATA_MEM)
@@ -231,7 +238,7 @@ module Top(
             ID_PC <= 0;
             ID_READ_DATA1 <= 0;
             ID_READ_DATA2 <= 0;
-            ID_OPAND <= 0;
+            ID_OPRAND <= 0;
             ID_INST <= 0;
 
             ID_REG_DST <= 0;
@@ -297,18 +304,21 @@ module Top(
             EX_JR  <=           JR_EX;
 
             EX_JUMP_PC <= ID_PC[31:28] + (ID_INST[25:0] << 2);
-            EX_BRANCH_PC <= ID_PC + (ID_OPAND[25:0] << 2);
+            // EX_BRANCH_PC <= ID_PC + (ID_OPRAND[15:0] << 2);
 
             EX_READ_DATA2 <=    ID_READ_DATA2;
 
             // ID
             ID_PC <= IF_PC;
+            ID_INST <= IF_INST;
             ID_READ_DATA1 <= READ_DATA1_ID;
             ID_READ_DATA2 <= READ_DATA2_ID;
-            ID_OPAND <= OPAND_ID;
-            ID_INST <= IF_INST;
+            ID_OPRAND <= OPRAND_ID;
 
-            if(stalling) begin
+            // ID_BRANCH_PC <= IF_PC + (ID_OPRAND << 2);
+
+            if (stalling || (BRANCH_ID && BEQ)) begin
+                // nop
                 ID_REG_DST <= 0;
                 ID_JUMP <= 0;
                 ID_BRANCH <= 0;
@@ -320,8 +330,7 @@ module Top(
                 ID_IMM <= 0;
                 ID_JAL <= 0;
                 ID_REG_WRITE <= 0;
-            end
-            else begin
+            end else begin
                 ID_REG_DST <= REG_DST_ID;
                 ID_JUMP <= JUMP_ID;
                 ID_BRANCH <= BRANCH_ID;
@@ -336,7 +345,12 @@ module Top(
             end
 
             // IF
-            if(stalling == 0) begin
+            // IF.Flush
+            if(BRANCH_ID && BEQ) begin
+                PC <= BRANCH_PC_ID;
+                IF_PC <= 0;
+                IF_INST <= 0;
+            end else if(stalling == 0) begin
                 PC <= PC + 4;
                 IF_PC <= PC;            // Has already been PC + 4
                 IF_INST <= INST_IF;
@@ -345,7 +359,27 @@ module Top(
     end
 
     always @(negedge clk ) begin
-        PC <= EX_JR ? EX_ALU_RES : (EX_JUMP ? EX_JUMP_PC : (PC_SRC ? EX_BRANCH_PC : PC));
+        if(EX_JR) begin
+            PC <= EX_ALU_RES;
+            IF_PC <= 0;
+            IF_INST <= 0;
+            ID_PC <= 0;
+            ID_INST <= 0;
+            ID_REG_DST <= 0;
+            ID_JUMP <= 0;
+            ID_BRANCH <= 0;
+            ID_MEM_READ <= 0;
+            ID_MEM_TO_REG <= 0;
+            ID_MEM_WRITE <= 0;
+            ID_ALU_OP <= 0;
+            ID_ALU_SRC <= 0;
+            ID_IMM <= 0;
+            ID_JAL <= 0;
+            ID_REG_WRITE <= 0;
+        end else
+            PC <= EX_JUMP ? EX_JUMP_PC : PC;
+        // PC <= EX_JR ? EX_ALU_RES : (EX_JUMP ? EX_JUMP_PC : PC);
+        // PC <= EX_JR ? EX_ALU_RES : (EX_JUMP ? EX_JUMP_PC : (PC_SRC ? EX_BRANCH_PC : PC)); 
     end
 
 endmodule

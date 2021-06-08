@@ -1,0 +1,67 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jun  8 09:21:17 2021
+# Process ID: 6968
+# Current directory: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18700 C:\Users\lizil\Desktop\SEIEE4th\ArchLabs\lab06\lab06.xpr
+# Log file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/vivado.log
+# Journal file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_simulation
+source Basic_tb.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sim_1/imports/new/binary2.mem
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_stall.wcfg}
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_stall.wcfg}
+close_sim
