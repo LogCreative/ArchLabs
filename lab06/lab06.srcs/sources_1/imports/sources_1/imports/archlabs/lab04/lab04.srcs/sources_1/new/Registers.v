@@ -33,13 +33,13 @@ module Registers(
     );
 
     reg [31:0] RegFile [31:0];
-    reg [31:0] ReadData1;
-    reg [31:0] ReadData2;
+    // reg [31:0] ReadData1;
+    // reg [31:0] ReadData2;
 
-    always @(readReg1 or readReg2) begin
-        ReadData1 = RegFile[readReg1];
-        ReadData2 = RegFile[readReg2];
-    end
+    // always @(readReg1 or readReg2) begin
+    //     ReadData1 = RegFile[readReg1];
+    //     ReadData2 = RegFile[readReg2];
+    // end
 
     integer i;
 
@@ -54,7 +54,7 @@ module Registers(
         end
     end
 
-    assign readData1 = ReadData1;
-    assign readData2 = ReadData2;
+    assign readData1 = RegFile[readReg1];
+    assign readData2 = RegFile[readReg2];
 
 endmodule
