@@ -54,6 +54,9 @@ module Registers(
         end
     end
 
+    // assign readData1 = ReadData1;
+    // assign readData2 = ReadData2;
+
     assign readData1 = RegFile[readReg1];
     assign readData2 = RegFile[readReg2];
 
