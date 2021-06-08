@@ -158,7 +158,7 @@ module Top(
     wire stalling = (ID_MEM_READ & ((ID_INST[20:16] == IF_INST[25:21]) | (ID_INST[20:16] == IF_INST[20:16]))) ? 1 : 0;
 
     // predict-not-taken
-    wire BEQ = (READ_DATA1_ID == READ_DATA2_ID);
+    wire BEQ = (ForwardA_RES == ForwardB_RES);
 
     // IF 
     InstMemory instMemory(
@@ -317,7 +317,7 @@ module Top(
 
             // ID_BRANCH_PC <= IF_PC + (ID_OPRAND << 2);
 
-            if (stalling || (BRANCH_ID && BEQ)) begin
+            if (stalling || (ID_BRANCH && BEQ)) begin
                 // nop
                 ID_REG_DST <= 0;
                 ID_JUMP <= 0;
@@ -345,12 +345,7 @@ module Top(
             end
 
             // IF
-            // IF.Flush
-            if(BRANCH_ID && BEQ) begin
-                PC <= BRANCH_PC_ID;
-                IF_PC <= 0;
-                IF_INST <= 0;
-            end else if(stalling == 0) begin
+            if(stalling == 0) begin
                 PC <= PC + 4;
                 IF_PC <= PC;            // Has already been PC + 4
                 IF_INST <= INST_IF;
@@ -359,6 +354,13 @@ module Top(
     end
 
     always @(negedge clk ) begin
+        // Here is the clear signal before transition.
+        // IF.Flush
+        if(ID_BRANCH && BEQ) begin
+            PC <= BRANCH_PC_ID;
+            IF_PC <= 0;
+            IF_INST <= 0;
+        end
         if(EX_JR) begin
             PC <= EX_ALU_RES;
             IF_PC <= 0;

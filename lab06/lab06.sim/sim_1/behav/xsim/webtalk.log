@@ -2,12 +2,12 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue Jun  8 22:55:03 2021
-# Process ID: 18268
+# Start of session at: Wed Jun  9 01:20:39 2021
+# Process ID: 19036
 # Current directory: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/Basic_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/Example_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/Basic_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Tue Jun  8 22:55:05 2021...
+source C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/Example_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Jun  9 01:20:40 2021...
