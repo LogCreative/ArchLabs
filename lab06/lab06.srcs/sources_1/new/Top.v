@@ -125,8 +125,8 @@ module Top(
         (EX_WRITE_REG == ID_INST[25:21])) ? 
             2'b10 : 
             ((MEM_REG_WRITE & (MEM_WRITE_REG != 0) 
-            & !(EX_REG_WRITE & (EX_WRITE_REG != 0)
-                && (EX_WRITE_REG != ID_INST[25:21]))
+            // & (!(EX_REG_WRITE & (EX_WRITE_REG != 0)
+                // && (EX_WRITE_REG != ID_INST[25:21])))
             & (MEM_WRITE_REG == ID_INST[25:21])) ? 
                 2'b01 : 
                 2'b00));
@@ -136,8 +136,8 @@ module Top(
         (EX_WRITE_REG == ID_INST[20:16])) ? 
             2'b10 :
             ((MEM_REG_WRITE & (MEM_WRITE_REG != 0) 
-            & !(EX_REG_WRITE & (EX_WRITE_REG != 0)
-                & (EX_WRITE_REG != ID_INST[20:16]))
+            // & (!(EX_REG_WRITE & (EX_WRITE_REG != 0)
+                // & (EX_WRITE_REG != ID_INST[20:16])))
             & (MEM_WRITE_REG == ID_INST[20:16])) ? 
                 2'b01 : 
                 2'b00));

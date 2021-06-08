@@ -30,7 +30,7 @@ module Basic_tb(
     Top Proc(.clk(clk),.reset(reset));
 
     initial begin
-        $readmemb("binary2.mem",Proc.instMemory.instructions);
+        $readmemb("mem_inst_example.mem",Proc.instMemory.instructions);
         $readmemh("mem_data_example.mem",Proc.DataMemory.MemFile,10'h0);
         reset = 1;
         clk = 0;
