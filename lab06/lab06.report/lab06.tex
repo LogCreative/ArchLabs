@@ -10,14 +10,15 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.17}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.17}
 \usepackage{appendix}
 \captionsetup[lstlisting]{labelfont=bf,justification=justified}
 \usepackage{multicol}
 \setlength{\columnsep}{3em}
 \usepackage{float}
 \usepackage{circuitikz}
+\usepackage{ulem}
 
 \graphicspath{{img/}}
 
@@ -65,17 +66,17 @@
     \item 增加Forwarding机制解决数据竞争，减少因数据竞争带来的流水线停顿延时，提高流水线处理器性能
     \item 设计支持Stall的流水线CPU。通过检测竞争并插入停顿（Stall）机制解决数据冒险、控制竞争和结构冒险
     \item 通过predict-not-taken或延时转移策略解决控制冒险/竞争，减少控制竞争带来的流水线停顿延时，进一步提高处理器性能
-    \item 将CPU支持的指令数量从16条扩充为31条，使处理器功能更加丰富（选做，本次仅完成 16 条）
+    \item \sout{将CPU支持的指令数量从16条扩充为31条，使处理器功能更加丰富（选做）}
 \end{enumerate}
 
 \section{原理分析}
 
 \subsection{基础流水线}
-
 \includegraphics[width=\textwidth]{pipeline.pdf}
 
-\subsection{前向转发机制}
 
+
+\subsection{前向转发机制}
 \includegraphics[width=\textwidth]{forwarding.pdf}
 
 \begin{table}[h]

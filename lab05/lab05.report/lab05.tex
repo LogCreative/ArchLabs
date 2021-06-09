@@ -18,7 +18,7 @@
 \setlength{\columnsep}{3em}
 \usepackage{float}
 \usepackage{circuitikz}
-
+\usetikzlibrary{shapes.misc}
 \graphicspath{{img/}}
 
 \usepackage[colorlinks]{hyperref}
@@ -65,7 +65,7 @@
     \item 设计支持16条MIPS指令（add, sub, and, or, addi, andi, ori, slt, lw, sw, beq, j, jal, jr, sll, srl）的单周期CPU
 \end{enumerate}
 
-\section{原理分析}
+\section{原理实现}
 
 \subsection{指令存储器}
 
@@ -77,6 +77,18 @@
 \end{figure}
 
 指令存储器通过读取 PC 的值获取需要读取的指令地址。如果读取的内存地址越界，就读取第一个指令。
+
+指令存储器被设定为 64 行。指令存储器的实现如下：
+
+\begin{lstlisting}[caption=InstMemory.v]
+module InstMemory(
+    input [31:0] readAddress,
+    output [31:0] inst
+    );
+    reg [31:0] instructions [0:63];
+    assign inst = instructions[readAddress / 4 < 64 ? readAddress / 4 : 0];
+endmodule
+\end{lstlisting}
 
 \subsection{顶层模块设计（一）}
 
@@ -186,13 +198,13 @@ Ctr 模块会被扩展三个输出信号，相关信息如表 \ref{tab:Ctr} 和�
 
 \subsection{跳转与PC}
 
-本处理器为统一起见，将时钟上跳沿设定为取指和递增，下跳沿将会处理跳转与分支相关的指令。示意图如图 \ref{fig:jal} 所示。
+本处理器为统一起见，将时钟上跳沿设定为取指和递增，下跳沿将会处理跳转与分支相关的指令。示意图如图 \ref{fig:jr} 所示。
 
 \begin{figure}[H]
     \centering
-    \input{img/jal.tex}
+    \input{img/jr.tex}
     \caption{跳转与 PC}
-    \label{fig:jal}
+    \label{fig:jr}
 \end{figure}
 
 % 上跳沿相关的指令：
@@ -209,72 +221,18 @@ Ctr 模块会被扩展三个输出信号，相关信息如表 \ref{tab:Ctr} 和�
                     ((BRANCH & ZERO) ? (PC + (OPRAND << 2)) : PC)); end
 \end{lstlisting}
 
-\subsection{顶层模块设计（二）}
+\subsection{JAL 和寄存器堆}
 
-添加这些数据线后，就可以支持 16 条指令了。并注意对 JAL 进行特殊的处理。
+Jump And Link (JAL) 指令会影响寄存器堆的输入。如图 \ref{fig:jal} 所示，在有 JAL 指令时会直接写入第 31 号寄存器，并写入 PC + 4 的值（此时 PC 还没有变化，保留上一次末尾值）。
 
-\begin{lstlisting}[caption=Top.v]
-    module Top(
-        input clk,
-        input reset
-    );
+\begin{figure}[h]
+    \centering
+    \input{img/jal.tex}
+    \caption{JAL 和寄存器堆}
+    \label{fig:jal}
+\end{figure}
 
-    reg [31:0] PC;
-
-    always @(posedge clk) begin
-        if(reset)
-            PC <= 0;
-        else begin
-            PC <= PC + 4;
-        end
-    end
-
-    wire [31:0] INST;
-
-    InstMemory instMemory(
-        .readAddress(PC),
-        .inst(INST)
-    );
-
-    wire REG_DST,
-        JUMP,
-        BRANCH,
-        MEM_READ,
-        MEM_TO_REG,
-        MEM_WRITE;
-    wire [1:0] ALU_OP;
-    wire ALU_SRC,
-        REG_WRITE,
-        ZEXT,
-        IMM,
-        JAL;
-
-    Ctr mainCtr(
-        .opCode(INST[31:26]),
-        .regDst(REG_DST),
-        .jump(JUMP),
-        .branch(BRANCH),
-        .memRead(MEM_READ),
-        .memToReg(MEM_TO_REG),
-        .aluOp(ALU_OP),
-        .memWrite(MEM_WRITE),
-        .aluSrc(ALU_SRC),
-        .regWrite(REG_WRITE),
-        .zext(ZEXT),
-        .imm(IMM),
-        .jal(JAL)
-    );
-
-    wire [31:0] READ_DATA1;
-    wire [31:0] READ_DATA2;
-    wire [31:0] OPRAND;
-    wire [3:0] ALU_CTR;
-    wire ZERO;
-    wire [31:0] ALU_RES;
-    wire [31:0] READ_DATA;
-    wire JR;
-    wire SHAMT;
-
+\begin{lstlisting}
     Registers registers(
         .clk(clk),
         .reset(reset),
@@ -286,94 +244,27 @@ Ctr 模块会被扩展三个输出信号，相关信息如表 \ref{tab:Ctr} 和�
         .readData1(READ_DATA1),
         .readData2(READ_DATA2)
     );
-
-    signext signExt(
-        .inst(INST[15:0]),
-        .zext(ZEXT),
-        .data(OPRAND)
-    );
-
-    ALUCtr aluctr(
-        .nop(INST == 0 ? 1'b1 : 1'b0), // Avoid nop conflict
-        .funct(IMM ? INST[31:26] : INST[5:0]),
-        .aluOp(ALU_OP),
-        .aluCtrOut(ALU_CTR),
-        .jr(JR),
-        .shamt(SHAMT)
-    );
-
-    ALU alu(
-        .input1(SHAMT ? INST[10:6] : READ_DATA1),  
-        .input2(ALU_SRC ? OPRAND : READ_DATA2),
-        .aluCtr(ALU_CTR),
-        .zero(ZERO),
-        .aluRes(ALU_RES)
-    );
-
-    dataMemory DataMemory(
-        .Clk(clk),
-        .address(ALU_RES),
-        .writeData(READ_DATA2),
-        .memWrite(MEM_WRITE),
-        .memRead(MEM_READ),
-        .readData(READ_DATA)
-    );
-
-    always @(negedge clk) begin
-    PC <= JR ? ALU_RES : (JUMP ? 
-                (PC[31:28] + INST[25:0] << 2) :     // 26 -> 28
-                ((BRANCH & ZERO) ? (PC + (OPRAND << 2)) : PC));
-    end
-
-endmodule
 \end{lstlisting}
 
-\section{代码实现}
+\subsection{顶层模块设计（二）}
 
-\subsection{指令存储器}
+添加这些数据线后，就可以支持 16 条指令了。
 
-指令存储器被设定为 64 行。指令存储器的实现如下：
+\begin{multicols}{2}
+    \code{Top.v}{verilog}
+\end{multicols}
 
-\begin{lstlisting}[caption=InstMemory.v]
-module InstMemory(
-    input [31:0] readAddress,
-    output [31:0] inst
-    );
+% \section{代码实现}
 
-    reg [31:0] instructions [0:63];
-    assign inst = instructions[readAddress / 4 < 64 ? readAddress / 4 : 0];
-
-endmodule
-\end{lstlisting}
+% \subsection{指令存储器}
 
 \section{仿真结果}
 
 使用了下面的指令文件进行仿真。该指令文件主要的作用是测试所有的运算功能，并在每一个循环对 10 号寄存器 + 1，并存储到 0 号存储单元中，直到其超过刚开始的限制寄存器的存储数字（这里是 4），之后就会进入短循环，不会再对寄存器和存储器进行修改。
 
-\begin{lstlisting}[caption=simple.asm]
-nop
-lw  $16, 8($0)            # $0 zero register
-jal 4
-nop
-lw  $8, 0($0)
-lw  $9, 4($0)
-sub $10, $8, $9
-and $10, $8, $9
-slt $10, $8, $9
-or  $10, $8, $9
-addi $10, $8, 8
-andi $10, $8, -1
-ori  $10, $8, -1
-sll $10, $8, 1
-srl $10, $8, 1
-add $10, $8, $9          # final save: += 1
-sw  $10, 0($0)
-beq $10, $16, 1
-jr $31
-j 16
-\end{lstlisting}
-
-\begin{lstlisting}[caption=mem\_data.mem]
+% \begin{multicols}{2}
+    \code{simple.asm}{}
+    \begin{lstlisting}[caption=mem\_data.mem]
 00000001
 00000001
 00000004
@@ -383,7 +274,8 @@ j 16
 00000000
 00000000
 00000000
-\end{lstlisting}
+    \end{lstlisting}
+% \end{multicols}
 
 激励文件加载指令集的时候，要注意 \verb"$readmemb" 是二进制读取，\verb"$readmemh" 是十六进制读取。
 
@@ -413,25 +305,33 @@ module Basic_tb(
 endmodule
 \end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figure2.png}
     \caption{16条指令的仿真结果}
     \label{fig:16}
 \end{figure}
 
-运算细节见图 \ref{fig:calcde}。所有的运算都得到了正确的结果。
+运算细节见图 \ref{fig:calcde}。最后条件结束的情况见图 \ref{fig:cond}。所有的运算都得到了正确的结果。
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{calcdetail.png}
-    \includegraphics[width=\textwidth]{memdetail.png}
     \caption{运算细节}
     \label{fig:calcde}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{memdetail.png}
+    \caption{最后条件结束}
+    \label{fig:cond}
+\end{figure}
+
 \section{实验心得}
 
-本次实验调试时间较长，花费近 8 个小时。主要是顶层设计的连线方案比较复杂，对于增扩的指令，需要重新设计端口加以实现。查看波形进行逐个波形的调试，有助于排查故障。这里面对于 ALUCtr 使用了 nop 扩增非常关键，否则会导致空指令执行了某些移位操作导致 0 寄存器非零，从而影响下面数据的读取。本次实验增加了我对单周期处理器设计的理解，对于理解一些原理有很大的帮助。
+本次实验调试时间较长，花费近 8 个小时。主要是顶层设计的连线方案比较复杂，对于增扩的指令，需要重新设计端口加以实现。查看波形进行逐个波形的调试，有助于排查故障。这里面对于 ALUCtr 使用了 nop 扩增非常关键，否则会导致空指令执行了某些移位操作导致 0 寄存器非零，从而影响下面数据的读取。对于 PC 的写入顺序进行了比较多的调试，最后确定了上跳沿递增、下跳沿跳转的方案，可以互不干扰。
+
+本次实验增加了我对单周期处理器设计的理解，对于理解一些原理有很大的帮助，对于下面的流水线处理器设计也会起到关键的作用。
 
 \end{document}

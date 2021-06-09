@@ -1,12 +1,11 @@
 \contentsline {section}{\numberline {1}实验目的}{2}{section.1}%
-\contentsline {section}{\numberline {2}原理分析}{2}{section.2}%
+\contentsline {section}{\numberline {2}原理实现}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}指令存储器}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}顶层模块设计（一）}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Ctr 扩展}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}ALUCtr 扩展}{5}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}跳转与PC}{6}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}顶层模块设计（二）}{7}{subsection.2.6}%
-\contentsline {section}{\numberline {3}代码实现}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}指令存储器}{10}{subsection.3.1}%
-\contentsline {section}{\numberline {4}仿真结果}{10}{section.4}%
-\contentsline {section}{\numberline {5}实验心得}{12}{section.5}%
+\contentsline {subsection}{\numberline {2.6}JAL 和寄存器堆}{7}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}顶层模块设计（二）}{7}{subsection.2.7}%
+\contentsline {section}{\numberline {3}仿真结果}{10}{section.3}%
+\contentsline {section}{\numberline {4}实验心得}{13}{section.4}%

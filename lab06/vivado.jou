@@ -11,3 +11,26 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg
+source Basic_tb.tcl
+run 1 us
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top Example_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg
+open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg
+source Example_tb.tcl
+close_sim
+run 1 us
