@@ -31,7 +31,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="344"/>
+    <Option Name="WTXSimLaunchSim" Val="350"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -214,6 +214,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/lab06.img/Basic_tb_fwd.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="Example_tb"/>
@@ -225,6 +230,7 @@
         <Option Name="XSimWcfgFile" Val="$PPRDIR/lab06.img/Basic_tb_PC.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/lab06.img/Basic_tb_MEM.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/lab06.img/Basic_tb_predict.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/lab06.img/Basic_tb_fwd.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">

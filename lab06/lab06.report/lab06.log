@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.17)  9 JUN 2021 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.17)  9 JUN 2021 17:51
 entering extended mode
 **./lab06.tex
 (lab06.tex
@@ -1020,7 +1020,7 @@ Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (q
 
 
 pdfTeX warning: pdflatex (file ./img//pipeline.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<img//pipeline.pdf, id=119, 464.06575pt x 366.51529pt>
+<img//pipeline.pdf, id=144, 464.06575pt x 366.51529pt>
 File: img//pipeline.pdf Graphic file (type pdf)
 <use img//pipeline.pdf>
 Package pdftex.def Info: img//pipeline.pdf  used on input line 75.
@@ -1030,103 +1030,183 @@ Overfull \hbox (21.07874pt too wide) in paragraph at lines 75--76
 [][] 
  []
 
+[2
 
+ <./img//pipeline.pdf>]
 
 pdfTeX warning: pdflatex (file ./img//forwarding.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<img//forwarding.pdf, id=120, 460.32576pt x 293.27466pt>
+<img//forwarding.pdf, id=199, 460.32576pt x 293.27466pt>
 File: img//forwarding.pdf Graphic file (type pdf)
 <use img//forwarding.pdf>
-Package pdftex.def Info: img//forwarding.pdf  used on input line 80.
+Package pdftex.def Info: img//forwarding.pdf  used on input line 83.
 (pdftex.def)             Requested size: 418.25368pt x 266.47311pt.
 
-Overfull \hbox (21.07874pt too wide) in paragraph at lines 80--81
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 83--84
 [][] 
  []
 
-LaTeX Font Info:    Trying to load font information for C70+zhfs on input line 86.
+LaTeX Font Info:    Trying to load font information for C70+zhfs on input line 90.
 ("C:\Program Files\MiKTeX\tex/latex/zhmetrics\c70zhfs.fd"
 File: c70zhfs.fd 2009/09/23 4.8.2
 )
-Overfull \hbox (28.07837pt too wide) in paragraph at lines 84--96
+Overfull \hbox (28.07837pt too wide) in paragraph at lines 88--100
  [][] 
  []
 
-[2
-
- <./img//pipeline.pdf>] [3 <./img//forwarding.pdf>]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.53937> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 105.
+[3 <./img//forwarding.pdf>]
 
 pdfTeX warning: pdflatex (file ./img//Imm.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<img//Imm.pdf, id=227, 460.63792pt x 321.63663pt>
+<img//Imm.pdf, id=255, 460.63792pt x 321.63663pt>
 File: img//Imm.pdf Graphic file (type pdf)
 <use img//Imm.pdf>
-Package pdftex.def Info: img//Imm.pdf  used on input line 126.
+Package pdftex.def Info: img//Imm.pdf  used on input line 164.
 (pdftex.def)             Requested size: 418.25368pt x 292.04686pt.
 
-Overfull \hbox (21.07874pt too wide) in paragraph at lines 126--127
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 164--165
 [][] 
  []
 
-[4 <./img//Imm.pdf>]
+[4] [5 <./img//Imm.pdf>] (Registers.v
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <6.52437> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1.
+)
 
 pdfTeX warning: pdflatex (file ./img//stall.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<img//stall.pdf, id=248, 458.4558pt x 308.8579pt>
+<img//stall.pdf, id=333, 458.4558pt x 308.8579pt>
 File: img//stall.pdf Graphic file (type pdf)
 <use img//stall.pdf>
-Package pdftex.def Info: img//stall.pdf  used on input line 148.
+Package pdftex.def Info: img//stall.pdf  used on input line 218.
 (pdftex.def)             Requested size: 418.25368pt x 281.78217pt.
 
-Overfull \hbox (21.07874pt too wide) in paragraph at lines 148--149
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 218--219
 [][] 
  []
 
-
+[6] [7 <./img//stall.pdf>]
 
 pdfTeX warning: pdflatex (file ./img//predict-not-taken.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<img//predict-not-taken.pdf, id=249, 450.8012pt x 298.95892pt>
+<img//predict-not-taken.pdf, id=421, 450.8012pt x 298.95892pt>
 File: img//predict-not-taken.pdf Graphic file (type pdf)
 <use img//predict-not-taken.pdf>
-Package pdftex.def Info: img//predict-not-taken.pdf  used on input line 159.
+Package pdftex.def Info: img//predict-not-taken.pdf  used on input line 259.
 (pdftex.def)             Requested size: 418.25368pt x 277.38571pt.
 
-Overfull \hbox (21.07874pt too wide) in paragraph at lines 159--160
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 259--260
 [][] 
  []
 
-[5 <./img//stall.pdf>]
+[8 <./img//predict-not-taken.pdf>] [9] [10]
 
 pdfTeX warning: pdflatex (file ./img//FINAL.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<img//FINAL.pdf, id=277, 462.45775pt x 298.32956pt>
+<img//FINAL.pdf, id=538, 462.45775pt x 298.32956pt>
 File: img//FINAL.pdf Graphic file (type pdf)
 <use img//FINAL.pdf>
-Package pdftex.def Info: img//FINAL.pdf  used on input line 163.
+Package pdftex.def Info: img//FINAL.pdf  used on input line 344.
 (pdftex.def)             Requested size: 418.25368pt x 269.82333pt.
 
-Overfull \hbox (21.07874pt too wide) in paragraph at lines 163--164
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 344--345
 [][] 
  []
 
+(Top.v [11 <./img//FINAL.pdf>] [12] [13] [14])
+Overfull \hbox (16.17155pt too wide) in paragraph at lines 360--360
+[]\C70/rm/m/n/10.53937/53 æ \C70/rm/m/n/10.53937/59 |\C70/rm/m/n/10.53937/ff | \C70/rm/m/n/10.53937/75 1 \C70/rm/m/n/10.53937/4e Ž\OT1/cmr/m/n/10.53937 MEM\C70/rm/m/n/10.53937/7e § \C70/rm/m/n/10.53937/76 „\OT1/cmr/m/n/10.53937 Branch\C70/rm/m/n/10.53937/4f  \C70/rm/m/n/10.53937/5f q \C70/rm/m/n/10.53937/54 Í\OT1/cmr/m/n/10.53937 PCSrc\C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/50 <|\C70/rm/m/n/10.53937/ff | \C70/rm/m/n/10.53937/4e Î \C70/rm/m/n/10.53937/80  \C70/rm/m/n/10.53937/5f q \C70/rm/m/n/10.53937/54 Í \C70/rm/m/n/10.53937/4e  \C70/rm/m/n/10.53937/6b !\OT1/cmr/m/n/10.53937 PC|\C70/rm/m/n/10.53937/ff | \C70/rm/m/n/10.53937/56 à \C70/rm/m/n/10.53937/6b d \C70/rm/m/n/10.53937/97   \C70/rm/m/n/10.53937/89  \C70/rm/m/n/10.53937/4e :\OT1/cmr/m/n/10.53937 Control\C70/rm/m/n/10.53937/52  
+ []
 
-Package caption Warning: Unused \captionsetup[lstlisting] on input line 16.
-See the caption package documentation for explanation.
+<img//mars.png, id=956, 898.85812pt x 572.1375pt>
+File: img//mars.png Graphic file (type png)
+<use img//mars.png>
+Package pdftex.def Info: img//mars.png  used on input line 374.
+(pdftex.def)             Requested size: 418.25368pt x 266.22452pt.
 
-[6 <./img//predict-not-taken.pdf> <./img//FINAL.pdf>] [7] (lab06.aux)
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 374--375
+[][] 
+ []
+
+[15]
+<img//hazard.png, id=990, 642.90187pt x 299.61937pt>
+File: img//hazard.png Graphic file (type png)
+<use img//hazard.png>
+Package pdftex.def Info: img//hazard.png  used on input line 380.
+(pdftex.def)             Requested size: 418.25368pt x 194.92857pt.
+
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 380--381
+[][] 
+ []
+
+<img//nohazard.png, id=991, 643.6547pt x 299.61937pt>
+File: img//nohazard.png Graphic file (type png)
+<use img//nohazard.png>
+Package pdftex.def Info: img//nohazard.png  used on input line 384.
+(pdftex.def)             Requested size: 418.25368pt x 194.69998pt.
+
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 384--385
+[][] 
+ []
+
+[16 <./img//mars.png> <./img//hazard.png>] [17 <./img//nohazard.png>] (simple.asm)
+<img//local.png, id=1050, 475.02469pt x 453.56953pt>
+File: img//local.png Graphic file (type png)
+<use img//local.png>
+Package pdftex.def Info: img//local.png  used on input line 446.
+(pdftex.def)             Requested size: 209.12683pt x 199.68195pt.
+<img//global.png, id=1051, 477.65953pt x 447.54703pt>
+File: img//global.png Graphic file (type png)
+<use img//global.png>
+Package pdftex.def Info: img//global.png  used on input line 447.
+(pdftex.def)             Requested size: 209.12683pt x 195.93791pt.
+
+Overfull \hbox (2.34207pt too wide) in paragraph at lines 445--448
+[] [] 
+ []
+
+<img//forward.png, id=1052, 586.44093pt x 338.01282pt>
+File: img//forward.png Graphic file (type png)
+<use img//forward.png>
+Package pdftex.def Info: img//forward.png  used on input line 451.
+(pdftex.def)             Requested size: 418.25368pt x 241.06871pt.
+
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 451--452
+[][] 
+ []
+
+[18 <./img//local.png> <./img//global.png>]
+<img//stalling.png, id=1084, 588.69937pt x 448.67625pt>
+File: img//stalling.png Graphic file (type png)
+<use img//stalling.png>
+Package pdftex.def Info: img//stalling.png  used on input line 457.
+(pdftex.def)             Requested size: 334.60422pt x 255.02242pt.
+ [19 <./img//forward.png> <./img//stalling.png>]
+<img//pnt.png, id=1092, 651.18282pt x 434.37282pt>
+File: img//pnt.png Graphic file (type png)
+<use img//pnt.png>
+Package pdftex.def Info: img//pnt.png  used on input line 463.
+(pdftex.def)             Requested size: 418.25368pt x 279.0051pt.
+
+Overfull \hbox (21.07874pt too wide) in paragraph at lines 463--464
+[][] 
+ []
+
+[20 <./img//pnt.png>] [21] (lab06.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 44589 strings out of 480236
- 1066743 string characters out of 2890433
- 1560060 words of memory out of 3000000
- 60275 multiletter control sequences out of 15000+200000
- 572509 words of font info for 167 fonts, out of 3000000 for 9000
+ 46575 strings out of 480236
+ 1093901 string characters out of 2890433
+ 2027058 words of memory out of 3000000
+ 61490 multiletter control sequences out of 15000+200000
+ 595303 words of font info for 252 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,8n,88p,496b,495s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on lab06.pdf (7 pages, 1860356 bytes).
+ 77i,8n,88p,735b,1336s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\lizil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi489\tctt0800.pk><C:/WINDOWS/Fonts/simhei.ttf> <C:\Users\lizil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tctt1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc> <C:\Users\lizil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\tcrm1000.pk><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simfang.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on lab06.pdf (21 pages, 3557477 bytes).
 PDF statistics:
- 656 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
- 319 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1710 PDF objects out of 1728 (max. 8388607)
+ 655 named destinations out of 1000 (max. 500000)
+ 491 words of extra memory for PDF output out of 10000 (max. 10000000)
 

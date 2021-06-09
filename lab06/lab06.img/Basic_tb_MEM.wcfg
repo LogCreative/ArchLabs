@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1485920000fs"></ZoomStartTime>
-      <ZoomEndTime time="1709920001fs"></ZoomEndTime>
-      <Cursor1Time time="1640720000fs"></Cursor1Time>
+      <ZoomStartTime time="1816666666fs"></ZoomStartTime>
+      <ZoomEndTime time="2072666667fs"></ZoomEndTime>
+      <Cursor1Time time="2000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="285"></NameColumnWidth>
-      <ValueColumnWidth column_width="502"></ValueColumnWidth>
+      <NameColumnWidth column_width="272"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="25" />
+   <WVObjectSize size="28" />
    <wvobject fp_name="/Basic_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -48,6 +48,10 @@
       <obj_property name="ElementShortName">MEM_PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">MEM_PC[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/DataMemory/MemFile" type="array">
+      <obj_property name="ElementShortName">MemFile[0:63][31:0]</obj_property>
+      <obj_property name="ObjectShortName">MemFile[0:63][31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/Basic_tb/Proc/registers/RegFile" type="array">
       <obj_property name="ElementShortName">RegFile[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">RegFile[31:0][31:0]</obj_property>
@@ -64,18 +68,6 @@
       <obj_property name="ElementShortName">readReg2[20:16]</obj_property>
       <obj_property name="ObjectShortName">readReg2[20:16]</obj_property>
    </wvobject>
-   <wvobject fp_name="/Basic_tb/Proc/ForwardA" type="array">
-      <obj_property name="ElementShortName">ForwardA[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ForwardA[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Basic_tb/Proc/ForwardB" type="array">
-      <obj_property name="ElementShortName">ForwardB[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ForwardB[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Basic_tb/Proc/stalling" type="logic">
-      <obj_property name="ElementShortName">stalling</obj_property>
-      <obj_property name="ObjectShortName">stalling</obj_property>
-   </wvobject>
    <wvobject fp_name="/Basic_tb/Proc/READ_DATA2_ID" type="array">
       <obj_property name="ElementShortName">READ_DATA2_ID[31:0]</obj_property>
       <obj_property name="ObjectShortName">READ_DATA2_ID[31:0]</obj_property>
@@ -84,21 +76,45 @@
       <obj_property name="ElementShortName">ID_READ_DATA2[31:0]</obj_property>
       <obj_property name="ObjectShortName">ID_READ_DATA2[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/Basic_tb/Proc/EX_ALU_RES" type="array">
-      <obj_property name="ElementShortName">EX_ALU_RES[31:0]</obj_property>
-      <obj_property name="ObjectShortName">EX_ALU_RES[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/Basic_tb/Proc/EX_READ_DATA2" type="array">
       <obj_property name="ElementShortName">EX_READ_DATA2[31:0]</obj_property>
       <obj_property name="ObjectShortName">EX_READ_DATA2[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ForwardA" type="array">
+      <obj_property name="ElementShortName">ForwardA[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardA[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/stalling" type="logic">
+      <obj_property name="ElementShortName">stalling</obj_property>
+      <obj_property name="ObjectShortName">stalling</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/alu/ALURes" type="array">
+      <obj_property name="ElementShortName">ALURes[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALURes[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/alu/input1" type="array">
+      <obj_property name="ElementShortName">input1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">input1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/alu/input2" type="array">
+      <obj_property name="ElementShortName">input2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">input2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/ForwardB" type="array">
+      <obj_property name="ElementShortName">ForwardB[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardB[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/EX_ALU_RES" type="array">
+      <obj_property name="ElementShortName">EX_ALU_RES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_ALU_RES[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Basic_tb/Proc/DataMemory/writeData" type="array">
+      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/Basic_tb/Proc/MEM_MEM_TO_REG" type="logic">
       <obj_property name="ElementShortName">MEM_MEM_TO_REG</obj_property>
       <obj_property name="ObjectShortName">MEM_MEM_TO_REG</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Basic_tb/Proc/DataMemory/MemFile" type="array">
-      <obj_property name="ElementShortName">MemFile[0:63][31:0]</obj_property>
-      <obj_property name="ObjectShortName">MemFile[0:63][31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/Basic_tb/Proc/WRITE_DATA_WB" type="array">
       <obj_property name="ElementShortName">WRITE_DATA_WB[31:0]</obj_property>
@@ -115,9 +131,5 @@
    <wvobject fp_name="/Basic_tb/Proc/DataMemory/readData" type="array">
       <obj_property name="ElementShortName">readData[31:0]</obj_property>
       <obj_property name="ObjectShortName">readData[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Basic_tb/Proc/DataMemory/writeData" type="array">
-      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
-      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
    </wvobject>
 </wave_config>

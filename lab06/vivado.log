@@ -259,3 +259,117 @@ launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): 
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 run 1 us
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Example_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/binary2.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/binary2.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Example_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c4d99c989b8b471ab528a5b5198a4aba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Example_tb_behav xil_defaultlib.Example_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 954.258 ; gain = 11.207
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Example_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/binary2.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/binary2.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Example_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c4d99c989b8b471ab528a5b5198a4aba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Example_tb_behav xil_defaultlib.Example_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 955.105 ; gain = 0.000
+create_wave_config; add_wave /; set_property needs_save false [current_wave_config]
+save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_fwd.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_fwd.wcfg
+set_property xsim.view {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_fwd.wcfg} [get_filesets sim_1]
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Example_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/binary2.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_inst_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/mem_data_example.mem'
+INFO: [SIM-utils-43] Exported 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/binary2.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Example_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c4d99c989b8b471ab528a5b5198a4aba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Example_tb_behav xil_defaultlib.Example_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 985.711 ; gain = 0.000
+run 1 us
+save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg}
+save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg}
+save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Jun  9 17:41:09 2021...

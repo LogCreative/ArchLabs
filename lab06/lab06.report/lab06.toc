@@ -1,8 +1,15 @@
 \contentsline {section}{\numberline {1}实验目的}{2}{section.1}%
-\contentsline {section}{\numberline {2}原理分析}{2}{section.2}%
+\contentsline {section}{\numberline {2}原理实现}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}基础流水线}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}前向转发机制}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}停顿机制}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}预测不发生机制}{6}{subsection.2.4}%
-\contentsline {section}{\numberline {3}仿真结果}{7}{section.3}%
-\contentsline {section}{\numberline {4}实验心得}{7}{section.4}%
+\contentsline {subsection}{\numberline {2.3}停顿机制}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}预测不发生机制}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}代码风格与顶端设计}{9}{subsection.2.5}%
+\contentsline {section}{\numberline {3}仿真结果}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}思考问题}{15}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Mars 汇编程序}{15}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}无优化仿真}{16}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}前向传递}{18}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}停顿机制}{19}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}预测不发生机制}{20}{subsection.3.6}%
+\contentsline {section}{\numberline {4}实验心得}{20}{section.4}%
