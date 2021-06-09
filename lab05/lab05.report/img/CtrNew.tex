@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+
+\node [ellipse,draw,minimum height=6.5cm,fill=white] (v2) at (0,0) {Ctr};
+\node [font=\ttfamily] (v1) at (-3,0) {OpCode[5:0]};
+
+\draw  (v1) edge[->] (v2);
+\node[font=\sffamily] (v3) at (3,2.5) {RegDst};
+\node[font=\sffamily] (v4) at (3,2) {ALUSrc};
+\node[font=\sffamily] (v5) at (3,1.5) {MemToReg};
+\node[font=\sffamily] (v6) at (3,1) {RegWrite};
+\node[font=\sffamily] (v7) at (3,0.5) {MemRead};
+\node[font=\sffamily] (v8) at (3,0) {MemWrite};
+\node[font=\sffamily] (v9) at (3,-0.5) {Branch};
+\node[font=\sffamily] (v10) at (3,-1) {ALUOp};
+\node[font=\sffamily] (v11) at (3,-1.5) {Jump};
+\node[font=\sffamily] (v12) at (3,-2) {zext};
+\node[font=\sffamily] (v13) at (3,-2.5) {imm};
+\node[font=\sffamily] (v14) at (3,-3) {jal};
+
+\foreach \x in {3,...,14}
+    \draw (v2) |- (v\x);
+
+\node [ellipse,draw,minimum height=6.5cm,fill=white] at (0,0) {Ctr};
+
+
+\end{tikzpicture}

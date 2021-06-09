@@ -2,118 +2,12 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue Jun  8 22:51:19 2021
-# Process ID: 17956
+# Start of session at: Wed Jun  9 08:17:34 2021
+# Process ID: 8412
 # Current directory: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9864 C:\Users\lizil\Desktop\SEIEE4th\ArchLabs\lab06\lab06.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13836 C:\Users\lizil\Desktop\SEIEE4th\ArchLabs\lab06\lab06.xpr
 # Log file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/vivado.log
 # Journal file: C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.xpr
-update_compile_order -fileset sources_1
-launch_simulation
-launch_simulation
-reset_simulation -simset sim_1 -mode behavioral
-launch_simulation
-open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg
-source Basic_tb.tcl
-create_wave_config; add_wave /; set_property needs_save false [current_wave_config]
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-create_wave_config; add_wave /; set_property needs_save false [current_wave_config]
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-run 1 us
-save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg}
-add_files -fileset sim_1 -norecurse C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg
-set_property xsim.view {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg} [get_filesets sim_1]
-create_wave_config; add_wave /; set_property needs_save false [current_wave_config]
-save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg}
-add_files -fileset sim_1 -norecurse C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg
-set_property xsim.view {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg} [get_filesets sim_1]
-save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg}
-relaunch_sim
-run 1 us
-relaunch_sim
-run 1 us
-relaunch_sim
-run 1 us
-relaunch_sim
-relaunch_sim
-run 1 us
-relaunch_sim
-run 1 us
-relaunch_sim
-run 1 us
-relaunch_sim
-run 1 us
-relaunch_sim
-run 1 us
-save_wave_config {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg}
-add_files -fileset sim_1 -norecurse C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg
-set_property xsim.view {C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg} [get_filesets sim_1]
-relaunch_sim
-file mkdir C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sim_1/new
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sim_1/new/Example_tb.v w ]
-add_files -fileset sim_1 C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.srcs/sim_1/new/Example_tb.v
-update_compile_order -fileset sim_1
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top Example_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_behav.wcfg
-open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_PC.wcfg
-open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_MEM.wcfg
-open_wave_config C:/Users/lizil/Desktop/SEIEE4th/ArchLabs/lab06/lab06.img/Basic_tb_predict.wcfg
-source Example_tb.tcl
-relaunch_sim
-relaunch_sim
-current_sim simulation_1
-relaunch_sim
-current_sim simulation_2
-close_sim
-relaunch_sim
-relaunch_sim
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top Basic_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-relaunch_sim
-run 1 us
-close_sim

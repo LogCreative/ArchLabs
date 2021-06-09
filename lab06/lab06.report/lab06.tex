@@ -61,11 +61,11 @@
 \section{实验目的}
 
 \begin{enumerate}
-    \item 理解CPUPipeline，了解流水线冒险(hazard)及相关性，设计基础流水线CPU
+    \item 理解CPU Pipeline，了解流水线冒险(hazard)及相关性，设计基础流水线CPU
     \item 增加Forwarding机制解决数据竞争，减少因数据竞争带来的流水线停顿延时，提高流水线处理器性能
     \item 设计支持Stall的流水线CPU。通过检测竞争并插入停顿（Stall）机制解决数据冒险、控制竞争和结构冒险
     \item 通过predict-not-taken或延时转移策略解决控制冒险/竞争，减少控制竞争带来的流水线停顿延时，进一步提高处理器性能
-    \item 将CPU支持的指令数量从16条扩充为31条，使处理器功能更加丰富（选做）
+    \item 将CPU支持的指令数量从16条扩充为31条，使处理器功能更加丰富（选做，本次仅完成 16 条）
 \end{enumerate}
 
 \section{原理分析}

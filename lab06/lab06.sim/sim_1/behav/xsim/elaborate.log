@@ -1,6 +1,6 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c4d99c989b8b471ab528a5b5198a4aba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Basic_tb_behav xil_defaultlib.Basic_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c4d99c989b8b471ab528a5b5198a4aba --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Example_tb_behav xil_defaultlib.Example_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -15,6 +15,6 @@ Compiling module xil_defaultlib.ALUCtr
 Compiling module xil_defaultlib.ALU
 Compiling module xil_defaultlib.dataMemory
 Compiling module xil_defaultlib.Top
-Compiling module xil_defaultlib.Basic_tb
+Compiling module xil_defaultlib.Example_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot Basic_tb_behav
+Built simulation snapshot Example_tb_behav

@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+
+\node [ellipse,draw,minimum height=3cm,fill=white] (v2) at (0,0) {ALUCtr};
+\node [font=\ttfamily] (v1) at (-3,0) {funct[5:0]};
+\node [font=\sffamily] (v3) at (0,-3) {ALUOp[1:0]};
+\node [font=\sffamily] (v4) at (3,0) {aluCtrOut[3:0]};
+\node [font=\ttfamily] (v5) at (-3,1) {nop};
+\node [font=\sffamily] (v6) at (-0.5,3.5) {jr};
+\node [font=\sffamily] (v7) at (0.5,3.5) {shamt};
+
+\draw (v1) edge[->] (v2);
+\draw (v3) edge[->] (v2);
+\draw (v2) edge[->] (v4);
+\draw (v5) -| (v2.center);
+\draw [->] (v2) -| (v6);
+\draw [->] (v2) -| (v7);
+
+\node [ellipse,draw,minimum height=3cm,fill=white] (v2) at (0,0) {ALUCtr};
+\end{tikzpicture}
