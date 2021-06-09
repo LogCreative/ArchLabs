@@ -312,7 +312,7 @@ endmodule
     \label{fig:16}
 \end{figure}
 
-运算细节见图 \ref{fig:calcde}。最后条件结束的情况见图 \ref{fig:cond}。所有的运算都得到了正确的结果。
+运算全过程见图 \ref{fig:16}，正常运行，MemFile 在最后为 4 之后就不再改变。每一个循环的运算细节见图 \ref{fig:calcde}。最后跳转的情况见图 \ref{fig:cond}。所有的运算都得到了正确的结果。
 
 \begin{figure}[H]
     \centering
@@ -324,7 +324,7 @@ endmodule
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{memdetail.png}
-    \caption{最后条件结束}
+    \caption{jal让31号寄存器有了地址}
     \label{fig:cond}
 \end{figure}
 
